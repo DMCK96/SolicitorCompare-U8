@@ -1,5 +1,5 @@
 {
-  "name": "Comment form",
+  "name": "Review Form",
   "created": "2019-06-30T02:26:37.938659+01:00",
   "pages": [
     {
@@ -48,10 +48,16 @@
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
                   "mandatory": true,
-                  "regex": "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$",
+                  "regex": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+",
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
-                  "condition": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
                   "settings": {
                     "DefaultValue": "",
                     "Placeholder": ""
@@ -129,7 +135,35 @@
                   },
                   "settings": {
                     "Theme": "light",
-                    "Size": "normal"
+                    "Size": "normal",
+                    "ErrorMessage": ""
+                  },
+                  "preValues": []
+                },
+                {
+                  "caption": "Solicitor",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "solicitor",
+                  "id": "99744d65-0160-457e-c905-25c723d3ac52",
+                  "fieldTypeId": "da206cae-1c52-434e-b21a-4a7c198af877",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": "[%solicitor]"
                   },
                   "preValues": []
                 }

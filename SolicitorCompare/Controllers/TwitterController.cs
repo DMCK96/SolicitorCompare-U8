@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
+using SolicitorCompare.Helpers;
 using Umbraco.Core.Models;
 using Umbraco.Web.Mvc;
 
@@ -20,7 +21,8 @@ namespace SolicitorCompare.Controllers
 
     public IEnumerable<TweetModel> GetTweets(string userName = "solicitorcom", int count = 2)
     {
-      IContent settings = Services.ContentService.GetById(1243);
+      var siteSettings = Umbraco.ContentSingleAtXPath(XPath.SiteSettingsNode);
+      IContent settings = Services.ContentService.GetById(siteSettings.Id);
 
       var accessToken = settings.GetValue<string>("twitterAccessToken");
 

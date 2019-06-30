@@ -6,7 +6,7 @@
   var author = Model.Author ?? Model.CreatorName;
 }
 
-@Html.Partial("Partials/_PageHeading")
+@Html.Partial("_PageHeading")
 <div class="blog-post">
   <div class="container">
     @if (!Model.Description.IsNullOrWhiteSpace())

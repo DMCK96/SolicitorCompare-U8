@@ -46,6 +46,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Review form: Select form used to leave reviews on solicitor page, leave empty and no form will be displayed.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
+		[ImplementPropertyType("reviewForm")]
+		public object ReviewForm => this.Value("reviewForm");
+
+		///<summary>
 		/// Twitter Access Token
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]

@@ -335,6 +335,7 @@ D:\Repositories\SolicitorCompare\SolicitorCompare\bin\MiniProfiler.Shared.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Newtonsoft.Json.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\NPoco.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Owin.dll
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Semver.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Serilog.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Serilog.Enrichers.Process.dll
@@ -414,6 +415,7 @@ D:\Repositories\SolicitorCompare\SolicitorCompare\bin\MiniProfiler.xml
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\MiniProfiler.Shared.xml
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Newtonsoft.Json.pdb
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Newtonsoft.Json.xml
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.xml
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Semver.xml
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Serilog.pdb
 D:\Repositories\SolicitorCompare\SolicitorCompare\bin\Serilog.xml
@@ -470,5 +472,5 @@ D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.csp
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.csproj.CopyComplete
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.pdb
-D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.dll
-D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.xml
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\JetBrains.Annotations.dll
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\JetBrains.Annotations.xml

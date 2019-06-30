@@ -1313,7 +1313,7 @@ body {
     position: relative; }
 
 .review-form {
-  width: 30%;
+  width: 75%;
   display: block;
   margin-bottom: 50px; }
   .review-form label {
@@ -1323,6 +1323,7 @@ body {
     line-height: 1.5rem;
     padding: 5px 10px; }
   .review-form input[type=submit] {
+    max-width: 150px;
     padding: 10px 30px;
     border: 1px solid #fff;
     background: #009fe3;
@@ -1343,9 +1344,18 @@ body {
       background-color: #fff;
       text-decoration: none; }
   .review-form textarea {
-    width: 100%; }
+    width: 100%;
+    resize: none;
+    height: 100px; }
   .review-form .umbraco-forms-field {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    vertical-align: top;
+    width: 45%;
+    display: inline-block;
+    margin-right: 4%; }
+  .review-form .longanswer {
+    width: 94%;
+    display: block; }
 
 .rich-text-editor {
   width: 100%;
@@ -1553,9 +1563,9 @@ body {
 .star-rating {
   display: inline-block;
   position: relative;
-  height: 20px;
-  line-height: 20px;
-  font-size: 20px; }
+  height: 25px;
+  line-height: 25px;
+  font-size: 25px; }
   .star-rating__label {
     position: absolute;
     top: 0;

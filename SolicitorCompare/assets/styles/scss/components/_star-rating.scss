@@ -1,9 +1,9 @@
 @include component(star-rating) {
   display: inline-block;
   position: relative;
-  height: 20px;
-  line-height: 20px;
-  font-size: 20px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 25px;
 
   @include part(label) {
     position: absolute;

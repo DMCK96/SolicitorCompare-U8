@@ -1,7 +1,11 @@
-﻿@using ContentModels = Umbraco.Web.PublishedModels;
+﻿@using SolicitorCompare.Helpers
+@using ContentModels = Umbraco.Web.PublishedModels;
 @inherits UmbracoViewPage<Umbraco.Web.PublishedModels.Solicitor>
 @{
     Layout = "master.cshtml";
+  Session["solicitor"] = Model.Name;
+  var siteSettings = Umbraco.ContentSingleAtXPath(XPath.SiteSettingsNode);
+  var form = siteSettings.Value<string>("reviewForm");
 }
 
 @Html.Partial("_PageHeading")
@@ -10,4 +14,12 @@
     @Html.Partial("_SolicitorAbout", Model)
 
     @Html.Partial("_SolicitorSidebar", Model)
+
+    @if (!form.IsNullOrWhiteSpace())
+    {
+      <div class="review-form">
+        @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid=form, ExcludeScripts="1"})
+      </div>
+    }
+
 </div>
