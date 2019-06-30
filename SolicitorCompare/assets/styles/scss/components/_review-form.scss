@@ -1,0 +1,44 @@
+@include component(review-form) {
+  width: 30%;
+  display: block;
+  margin-bottom: 50px;
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    line-height: 1.5rem;
+    padding: 5px 10px;
+  }
+
+  input[type=submit] {
+    padding: 10px 30px;
+    border: 1px solid $white;
+    background: $palette_a;
+    color: $white;
+    transition: all ease 0.5s;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    display: inline-block;
+
+    &:hover {
+      border: 1px solid $palette_a;
+      border-radius: 10px;
+      color: $palette_b;
+      background-color: $white;
+      text-decoration: none;
+    }
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .umbraco-forms-field {
+    margin-bottom: 15px;
+  }
+}
