@@ -470,3 +470,5 @@ D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.csp
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.csproj.CopyComplete
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.dll
 D:\Repositories\SolicitorCompare\SolicitorCompare\obj\Debug\SolicitorCompare.pdb
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.dll
+D:\Repositories\SolicitorCompare\SolicitorCompare\bin\RestSharp.xml
