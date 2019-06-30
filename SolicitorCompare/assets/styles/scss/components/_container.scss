@@ -1,0 +1,79 @@
+/*************************************************|
+| Container                                       |
+*************************************************/
+
+@include component(container) {
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+
+  @extend .cf;
+  padding: 0 $basepadding;
+
+  @include option(menu-container) {
+
+    @include bp($landscapetablet) {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    @include bp(1070px) {
+      margin: 0 auto;
+      max-width: 1170px;
+      padding: 0;
+      width: 90%;
+    }
+
+    @include bp($desktop) {
+      width: 85%;
+    }
+  }
+
+  @include option(lst-only) {
+    padding: 0;
+  }
+
+  @include option(lst-relative) {
+    position: relative;
+  }
+
+  @include option(flex-tablet) {
+    display: flex;
+  }
+
+  @include bp($landscapetablet) {
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+  }
+
+  @include bp($desktop) {
+    width: 1170px;
+  }
+
+  @include option(tablet-ignore) {
+
+    @include bp-max($landscapetablet) {
+      max-width: none;
+      margin: 0;
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  @include option(mobile-ignore) {
+
+    @include bp-max($tablet) {
+      max-width: none;
+      margin: 0;
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  @include option(relative) {
+    position: relative;
+  }
+}

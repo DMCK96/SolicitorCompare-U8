@@ -1,0 +1,105 @@
+@model IPublishedElement
+@{
+    var heading = Model.Value<string>("heading") ?? "";
+    var subText = Model.Value<string>("subText") ?? "";
+    var youtubeVideoId = Model.Value<string>("youtubeVideoID") ?? "";
+    var steps = Model.Value<IEnumerable<IPublishedElement>>("steps").ToArray();
+
+    var stepImage1 = steps[0].Value<IPublishedContent>("image").Url;
+    var stepImage2 = steps[1].Value<IPublishedContent>("image").Url;
+    var stepImage3 = steps[2].Value<IPublishedContent>("image").Url;
+    var stepImage4 = steps[3].Value<IPublishedContent>("image").Url;
+
+    var stepHeading1 = steps[0].Value<string>("heading");
+    var stepHeading2 = steps[1].Value<string>("heading");
+    var stepHeading3 = steps[2].Value<string>("heading");
+    var stepHeading4 = steps[3].Value<string>("heading");
+
+    var stepSubText1 = steps[0].Value<string>("text");
+    var stepSubText2 = steps[1].Value<string>("text");
+    var stepSubText3 = steps[2].Value<string>("text");
+    var stepSubText4 = steps[3].Value<string>("text");
+}
+
+<div class="how-does-it-work">
+    <div class="container">
+        @if (!heading.IsNullOrWhiteSpace())
+        {
+            <h2 class="how-does-it-work__heading">
+                @heading
+            </h2>
+        }
+
+        @if (!subText.IsNullOrWhiteSpace())
+        {
+            <p class="how-does-it-work__sub-text">@subText</p>
+        }
+    </div>
+
+    <div class="home-concept appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="500">
+        <svg class="home-concept-bg" x="0px" y="0px" width="345px" height="93px" viewBox="0 0 345 83" enable-background="new 0 0 345 93" xml:space="preserve">
+            <image overflow="visible" width="26" height="39" xlink:href="assets/img/home-concept/home-concept-pin.png" transform="matrix(0.169 0.1308 -0.1308 0.169 339.8496 0.6826)" class="final-pin appear-animation" data-appear-animation="animated-pin" data-appear-animation-delay="3650">
+            </image>
+            <path class="line appear-animation" fill="none" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-duration="4s" d="M7.086,87.455c8.133-8.646,54.247-51.634,155.173-36.766C268.762,66.38,327.34,17.642,337.992,10.241"/>
+            <path fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" d="M7.086,87.455c8.133-8.646,54.247-51.634,155.173-36.766C268.762,66.38,327.34,17.642,337.992,10.241"/>
+            <image overflow="visible" width="26" height="39" xlink:href="assets/img/home-concept/home-concept-pin.png" transform="matrix(0.2137 0 0 0.2137 1 81.5898)" class="initial-pin appear-animation" data-appear-animation="animated-pin">
+            </image>
+        </svg>
+
+            <div class="row center">
+                <span class="cloud"></span>
+
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="process-image how-does-it-work__step">
+                        <div class="box-image">
+                            <svg class="small-circle" x="0px" y="0px" width="39px" height="39px" viewBox="0 0 39 39" enable-background="new 0 0 39 39" xml:space="preserve">
+                                <circle class="line appear-animation" fill="#FFF" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-delay="800" cx="19.5" cy="19.5" r="19.063"/>
+                                <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
+                            </svg>
+                            <img src="@stepImage1" alt="" class="appear-animation" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="1400"/>
+                        </div>
+                        <strong class="appear-animation how-does-it-work__step__heading" data-appear-animation="fadeInDown" data-appear-animation-delay="1150" data-plugin-options="{'accY': 200}">@stepHeading1</strong><span class="appear-animation how-does-it-work__step__sub-text" data-appear-animation="fadeInDown" data-appear-animation-delay="1150" data-plugin-options="{'accY': 200}">@stepSubText1</span>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="process-image how-does-it-work__step">
+                        <div class="box-image">
+                            <svg class="small-circle" x="0px" y="0px" width="39px" height="39px" viewBox="0 0 39 39" enable-background="new 0 0 39 39" xml:space="preserve">
+                                <circle class="line appear-animation" fill="#FFF" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-delay="1200" cx="19.5" cy="19.5" r="19.063"/>
+                                <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
+                            </svg>
+                            <img src="@stepImage2" alt="" class="appear-animation" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="1900"/>
+                        </div>
+                        <strong class="appear-animation how-does-it-work__step__heading" data-appear-animation="fadeInDown" data-appear-animation-delay="2150" data-plugin-options="{'accY': 200}">@stepHeading2</strong><span class="appear-animation how-does-it-work__step__sub-text" data-appear-animation="fadeInDown" data-appear-animation-delay="2150" data-plugin-options="{'accY': 200}">@stepSubText2</span>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="process-image how-does-it-work__step">
+                        <div class="box-image">
+                            <svg class="small-circle" x="0px" y="0px" width="39px" height="39px" viewBox="0 0 39 39" enable-background="new 0 0 39 39" xml:space="preserve">
+                                <circle class="line appear-animation" fill="#FFF" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-delay="1700" cx="19.5" cy="19.5" r="19.063"/>
+                                <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" cx="19.5" cy="19.5" r="19.063"/>
+                            </svg>
+                            <img src="@stepImage3" alt="" class="appear-animation" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="2400"/>
+                        </div>
+                        <strong class="appear-animation how-does-it-work__step__heading" data-appear-animation="fadeInDown" data-appear-animation-delay="2650" data-plugin-options="{'accY': 200}">@stepHeading3</strong><span class="appear-animation how-does-it-work__step__sub-text" data-appear-animation="fadeInDown" data-appear-animation-delay="2650" data-plugin-options="{'accY': 200}">@stepSubText3</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="project-image how-does-it-work__step">
+                        <div class="box-image">
+                            <svg class="big-circle" x="0px" y="0px" width="85px" height="85px" viewBox="0 0 85 85" enable-background="new 0 0 85 85" xml:space="preserve">
+                                <circle class="line appear-animation" fill="#FFF" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-delay="2250" cx="42.5" cy="42.5" r="42.063"/>
+                                <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" cx="42.5" cy="42.5" r="42.063"/>
+                            </svg>
+                            <img src="@stepImage4" alt="" class="appear-animation" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="2400"/>
+                        </div>
+                        <strong class="Our-Work appear-animation how-does-it-work__step__heading" data-appear-animation="fadeInDown" data-appear-animation-delay="3150" data-plugin-options="{'accY': 300}">@stepHeading4</strong><span class="appear-animation how-does-it-work__step__sub-text" data-appear-animation="fadeInDown" data-appear-animation-delay="3150" data-plugin-options="{'accY': 300}">@stepSubText4</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

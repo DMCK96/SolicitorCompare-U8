@@ -1,0 +1,134 @@
+@include component(navigation) {
+  display: none;
+  margin-bottom: 20px;
+
+  @include bp($landscapetablet) {
+    display: block !important;
+    margin-bottom: 0;
+    height: auto !important;
+  }
+
+  @include part(list) {
+    @extend .cf;
+
+    @include bp($landscapetablet) {
+      width: auto;
+      display: inline-block;
+      float: left;
+    }
+  }
+
+  @include part(list-container) {
+
+    @include bp($landscapetablet) {
+      text-align: center;
+      position: relative;
+    }
+  }
+
+  @include part(item) {
+    position: relative;
+
+    @include bp($landscapetablet) {
+      display: inline-block;
+      float: left;
+      margin-bottom: 0;
+      position: static;
+    }
+
+    @include option(submenu) {
+      background: $white;
+      transition: all 0.4s;
+
+      &:hover {
+        border-left: solid 5px $palette_a;
+      }
+
+      @include bp($landscapetablet) {
+        border-bottom: 1px solid $palette_c;
+        width: 100%;
+        display: flex;
+        float: left;
+        align-content: center;
+
+        &:last-child {
+
+        }
+      }
+    }
+
+    &:hover & {
+      @include part(submenu) {
+        @include bp($landscapetablet) {
+          pointer-events: all;
+          display: flex;
+          opacity: 1;
+          position: absolute;
+          bottom: 0;
+          z-index: 50;
+          transform: translateY(100%);
+          transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+        }
+      }
+    }
+
+    @include part(submenu) {
+      @extend .cf;
+      opacity: 0;
+      pointer-events: none;
+
+      @include bp($landscapetablet) {
+        left: 0;
+        right: 0;
+        flex-wrap: wrap;
+        bottom: auto !important;
+        transform: translate(0, 0) !important;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 0;
+        position: absolute !important;
+        min-width: 280px;
+      }
+    }
+  }
+
+  @include part(link) {
+    color: $palette_a;
+    font-weight: 700;
+    padding: 20px;
+    display: block;
+
+    @include bp($landscapetablet) {
+      padding: 10px 15px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @include option(disabled) {
+      pointer-events: none;
+    }
+
+    @include option(submenu) {
+      color: darken($white, 50);
+      padding: 20px 30px 20px 20px;
+
+      @include bp($landscapetablet) {
+        display: block;
+        float: none;
+        background: none;
+        text-align: left;
+        border-bottom: 1px dotted $white;
+        font-family: 'Oxygen', sans-serif;
+        font-size: .8rem;
+        box-sizing: border-box;
+
+        &:hover {
+          color: $palette_a;
+        }
+      }
+    }
+  }
+}

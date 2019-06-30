@@ -1,0 +1,118 @@
+@model OpeningHours
+@{
+}
+
+<div class="opening-hours">
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Monday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Monday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Monday.OpeningTime.ToString("hh:mmtt") - @Model.Monday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Tuesday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Tuesday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Tuesday.OpeningTime.ToString("hh:mmtt") - @Model.Tuesday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Wednesday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Wednesday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Wednesday.OpeningTime.ToString("hh:mmtt") - @Model.Wednesday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Thursday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Thursday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Thursday.OpeningTime.ToString("hh:mmtt") - @Model.Thursday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Friday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Friday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Friday.OpeningTime.ToString("hh:mmtt") - @Model.Friday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Saturday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Saturday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Saturday.OpeningTime.ToString("hh:mmtt") - @Model.Saturday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+
+  <div class="opening-hours__item">
+    <div class="opening-hours__item__day">Sunday</div>
+    <div class="opening-hours__item__hours">
+      @if (Model.Sunday.Closed)
+      {
+        <p>Closed</p>
+      }
+      else
+      {
+        <p>
+          @Model.Sunday.OpeningTime.ToString("hh:mmtt") - @Model.Sunday.ClosingTime.ToString("hh:mmtt")
+        </p>
+      }
+    </div>
+  </div>
+</div>

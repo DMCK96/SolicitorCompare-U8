@@ -1,0 +1,10 @@
+@inherits UmbracoViewPage
+@{
+    if (Model.HasProperty("components") && Model.Value<IEnumerable<IPublishedElement>>("components", defaultValue: new List<IPublishedElement>()).Any())
+    {
+        foreach (var m in Model.Value<IEnumerable<IPublishedElement>>("components"))
+        {
+            @Html.Partial("_" + m.ContentType.Alias.ToFirstUpper(), m)
+        }
+    }
+}

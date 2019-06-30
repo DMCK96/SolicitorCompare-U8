@@ -1,0 +1,129 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Blog>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+  Layout = "master.cshtml";
+  IEnumerable<BlogPost> blogPosts = Model.Children<BlogPost>().OrderByDescending(x => x.CreateDate);
+  var totalPosts = blogPosts.Count();
+  BlogPost featuredArticle = blogPosts.First();
+  var count = 0;
+
+  blogPosts = blogPosts.Skip(1);
+  Int32.TryParse(Request.QueryString["page"], out var page);
+  var pageSize = Model.ArticlesPerPage;
+  double pages = totalPosts / pageSize;
+  var totalPages = (int)Math.Ceiling(pages);
+
+  if (page == 0)
+  {
+    page = 1;
+  }
+
+  if (totalPosts > pageSize)
+  {
+    blogPosts = blogPosts.Skip((page - 1) * pageSize).Take(pageSize);
+  }
+
+}
+
+@Html.Partial("_PageHeading")
+
+<div class="container">
+  @if (page == 1)
+  {
+    <div class="blog-archive__featured-article" style="background-image:url('@featuredArticle.Image.Url');">
+      @{
+        var featuredExcerpt = featuredArticle.Excerpt ?? featuredArticle.Text.ToString().Substring(0, 120);
+      }
+      <a href="@featuredArticle.Url" class="blog-archive__featured-article__link">
+        <div class="blog-archive__featured-article__details">
+          <div class="blog-archive__featured-article__title">
+            @featuredArticle.Name
+          </div>
+          <div class="blog-archive__featured-article__excerpt">
+            @featuredExcerpt...
+          </div>
+          <div class="blog-archive__featured-article__date">
+            @featuredArticle.CreateDate.ToString("D")
+          </div>
+        </div>
+      </a>
+    </div>
+  }
+
+  <div class="blog-archive">
+    @foreach (var post in blogPosts)
+    {
+      var excerpt = post.Excerpt ?? post.Text.ToString().Substring(0, 120);
+
+      <div class="blog-archive__post" style="background-image:url('@post.Image.Url');">
+        <a href="@post.Url" class="blog-archive__post__link">
+          <div class="blog-archive__post__overlay"></div>
+          <div class="blog-archive__post__details">
+            <div class="blog-archive__post__title">
+              @post.Name
+            </div>
+            <div class="blog-archive__post__excerpt">
+              @excerpt...
+            </div>
+            <div class="blog-archive__post__date">
+              @post.CreateDate.ToString("D")
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+
+  @if (totalPages > 1)
+  {
+    <div class="blog-archive__pagination">
+
+      @if (page == 1)
+      {
+        <div class="blog-archive__pagination__previous --disabled">
+          <i class="fas fa-chevron-left"></i>
+          Previous
+        </div>
+      }
+      else
+      {
+        var previousUrl = Model.Url + "?page=" + (page - 1);
+        <a class="blog-archive__pagination__previous" href="@previousUrl">
+          <i class="fas fa-chevron-left"></i>
+          Previous
+        </a>
+      }
+
+      @for (int i = 1; i <= totalPages; i++)
+      {
+        if (i == page)
+        {
+          <p class="blog-archive__pagination__number --current">@i</p>
+        }
+        else
+        {
+          var url = Model.Url + "?page=" + i;
+          <a class="blog-archive__pagination__number" href="@url">@i</a>
+        }
+      }
+
+      @if (page == totalPages)
+            {
+              <div class="blog-archive__pagination__next --disabled">
+                Next
+                <i class="fas fa-chevron-right"></i>
+              </div>
+            }
+            else
+            {
+              var nextUrl = Model.Url + "?page=" + (page + 1);
+              <a class="blog-archive__pagination__next" href="@nextUrl">
+                Next
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            }
+    </div>
+  }
+</div>
+
+

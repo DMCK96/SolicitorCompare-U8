@@ -1,0 +1,29 @@
+@include component(twitter) {
+
+  @include part(icon) {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: $palette_a;
+  }
+
+  @include part(tweet) {
+    padding-bottom: 10px;
+
+    @include part(text) {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      margin-bottom: 5px;
+      color: lighten($palette_b, 20);
+    }
+
+    @include part(date) {
+      font-size: 0.8rem;
+      color: $white;
+
+      &:hover {
+        color: $palette_a;
+        text-decoration: none;
+      }
+    }
+  }
+}

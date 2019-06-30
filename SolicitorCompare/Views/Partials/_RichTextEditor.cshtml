@@ -1,0 +1,5 @@
+@model IPublishedElement
+
+    <div class="rich-text-editor">
+        @Html.Raw(Model.Value<string>("text"))
+    </div>

@@ -1,0 +1,32 @@
+@include component(solicitor-sidebar) {
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+
+  @include part(services) {
+    margin-bottom: 30px;
+
+    @include part(list) {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 30px;
+
+      @include part(service) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+
+  @include part(opening-times) {
+
+  }
+
+  @include part(heading) {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+}

@@ -1,0 +1,36 @@
+@include component(button) {
+  padding: 10px 30px;
+  border: 1px solid $palette_a;
+  background: transparent;
+  color: $palette_a;
+  transition: all ease 0.5s;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  box-sizing: border-box;
+  display: inline-block;
+
+  &:hover {
+    border: 1px solid $white;
+    border-radius: 10px;
+    color: $white;
+    text-decoration: none;
+  }
+
+  @include option(secondary) {
+    background: $palette_a;
+    color: $white;
+
+    &:hover {
+      background: $white;
+      color: $black;
+    }
+  }
+
+  @include option(dark) {
+    &:hover {
+      background: $palette_b;
+      color: $white;
+    }
+  }
+}

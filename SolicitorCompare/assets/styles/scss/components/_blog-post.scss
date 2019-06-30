@@ -1,0 +1,34 @@
+@include component(blog-post) {
+  margin-bottom: 50px;
+
+  @include part(description) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  @include part(image) {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 25px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @include part(details) {
+    margin-bottom: 20px;
+  }
+
+  @include part(author) {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  @include part(date) {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: $palette_a;
+  }
+}

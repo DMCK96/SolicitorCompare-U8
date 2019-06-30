@@ -1,0 +1,101 @@
+//sass-lint:disable-all
+@include component(rich-text-editor) {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 40px;
+
+    @include option(no-margin) {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 30px;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $palette_a;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    i {
+        font-style: italic;
+    }
+
+    b {
+        font-weight: bold;
+    }
+
+    em {
+        /*display: inline-block;
+        //background-color: $palette_a;
+        padding: 0 3px;
+        font-family: $boldfont;
+        color: $palette_b;
+        border-radius: 1px;*/
+        font-style: italic;
+    }
+
+    em strong {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    iframe {
+        margin: 20px 0 40px;
+        width: 100%;
+        max-width: 560px;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    iframe {
+        min-height: 320px;
+    }
+
+    strong {
+        font-weight: bold;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    i strong {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 0 !important;
+        font-size: 1rem !important;
+    }
+
+    h3 i strong {
+        font-family: $boldfont;
+    }
+}

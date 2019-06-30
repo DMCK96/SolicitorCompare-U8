@@ -1,0 +1,50 @@
+@include component(header) {
+  background: $white;
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px 0 10px;
+  transition: min-height 0.3s ease;
+  width: 100%;
+  height: auto;
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+
+  @include part(container) {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  @include part(logo-container) {
+    display: inline-block;
+    height: 50px;
+    width: 350px;
+    position: relative;
+  }
+
+  @include part(logo) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include part(img) {
+      height: 40px;
+    }
+  }
+
+  @include part(navigation-wrapper) {
+    display: inline-block;
+    position: relative;
+    float: right;
+    height: 50px;
+    width: 50%;
+  }
+
+  @include part(navigation) {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

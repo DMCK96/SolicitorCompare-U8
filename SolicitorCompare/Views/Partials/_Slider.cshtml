@@ -1,0 +1,44 @@
+@model IEnumerable<HeroSlide>
+
+<div class="glide">
+    <div data-glide-el="controls">
+        <div class="slider__button --left" data-glide-dir="<"><i class="fas fa-chevron-left"></i></div>
+        <div class="slider__button --right" data-glide-dir=">"><i class="fas fa-chevron-right slider__button__icon"></i></div>
+    </div>
+
+    <div data-glide-el="track" class="glide__track">
+        <ul class="glide__slides">
+            @foreach (var slide in Model)
+            {
+                <li class="glide__slide">
+                    <div class="slider">
+                        <div class="slider__overlay"></div>
+                        <div class="container">
+                            <div class="slider__content">
+                                <div class="slider__content__heading">
+                                    @Html.Raw(slide.HeadingText)
+                                </div>
+                                @if (!slide.ContentText.ToHtmlString().IsNullOrWhiteSpace())
+                                {
+                                    <div class="slider__content__sub-text">
+                                        @Html.Raw(slide.ContentText)
+                                    </div>
+                                }
+                                @if (slide.Buttons.Any())
+                                {
+                                    foreach (var button in slide.Buttons)
+                                    {
+                                        var secondary = button.SecondaryStyling ? "--secondary" : "";
+                                        <a class="button @secondary" href="@button.Location.Url">
+                                            @button.Text
+                                        </a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

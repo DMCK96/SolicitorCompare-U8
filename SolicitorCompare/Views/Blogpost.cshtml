@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BlogPost>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+  Layout = "master.cshtml";
+
+  var author = Model.Author ?? Model.CreatorName;
+}
+
+@Html.Partial("Partials/_PageHeading")
+<div class="blog-post">
+  <div class="container">
+    @if (!Model.Description.IsNullOrWhiteSpace())
+    {
+      <div class="blog-post__description">@Model.Description</div>
+    }
+
+    <div class="blog-post__image" style="background-image: url('@Model.Image.Url')"></div>
+
+    <div class="blog-post__text rich-text-editor">@Html.Raw(Model.Text)</div>
+
+    <div class="blog-post__details">
+      <div class="blog-post__author">By @author</div>
+      <div class="blog-post__date">@Model.CreateDate.ToString("f")</div>
+    </div>
+
+  </div>
+</div>

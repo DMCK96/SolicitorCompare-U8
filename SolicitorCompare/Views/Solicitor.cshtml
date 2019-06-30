@@ -1,0 +1,13 @@
+﻿@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits UmbracoViewPage<Umbraco.Web.PublishedModels.Solicitor>
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("_PageHeading")
+
+<div class="container">
+    @Html.Partial("_SolicitorAbout", Model)
+
+    @Html.Partial("_SolicitorSidebar", Model)
+</div>

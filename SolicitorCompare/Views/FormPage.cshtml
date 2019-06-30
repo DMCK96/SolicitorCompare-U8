@@ -1,0 +1,16 @@
+@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits UmbracoViewPage<Umbraco.Web.PublishedModels.FormPage>
+@{
+  Layout = "master.cshtml";
+  var form = Model.Form.ToString();
+}
+@Html.Partial("_PageHeading")
+
+<div class="container">
+  <div class="categories">
+    <h3>Categories</h3>
+  </div>
+  <div class="content">
+    @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid=form, ExcludeScripts="1"})
+  </div>
+</div>

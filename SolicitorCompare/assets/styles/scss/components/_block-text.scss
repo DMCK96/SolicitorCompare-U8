@@ -1,0 +1,45 @@
+@include component(block-text) {
+  background: linear-gradient(to bottom, $white 1%, #fcfcfc 98%) repeat scroll 0 0 transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #DFDFDF;
+  border-left: 1px solid #ECECEC;
+  border-radius: 8px;
+  border-right: 1px solid #ECECEC;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04);
+  margin: 20px auto;
+  min-height: 100px;
+  position: relative;
+  text-align: left;
+  z-index: 1;
+
+  @include part(content) {
+    box-sizing: border-box;
+    border-radius: 8px;
+    border-top: 1px solid $palette_a;
+    border-top-width: 4px;
+    padding: 50px 30px;
+    position: relative;
+    top: -1px;
+  }
+
+  @include part(heading) {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+
+  @include part(text) {
+    font-size: 1.2rem;
+    line-height: 1.75rem;
+
+    p {
+      margin-bottom: 15px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

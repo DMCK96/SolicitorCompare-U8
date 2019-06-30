@@ -1,0 +1,31 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    var homeNode = Umbraco.Content(1104);
+}
+
+<nav class="navigation">
+    <div class="navigation__list-container">
+            <ul class="navigation__list">
+                @foreach (var child in homeNode.Children.Where(x => x.Value<bool>("hideInNavigation") == false))
+                {
+                    var disabled = child.Value<bool>("disableLink") ? "--disabled" : "";
+                    <li class="navigation__item">
+                        <a href="@child.Url" class="navigation__link @disabled">
+                            @child.Name
+                        </a>
+                        @if (child.Children.Any() && child.Children.Count() < 10 && child.Value<bool>("hideSubmenu") == false)
+                        {
+                            <ul class="navigation__item__submenu">
+                                @foreach (var subChild in child.Children)
+                                {
+                                    <li class="navigation__item --submenu">
+                                        <a href="@subChild.Url" class="navigation__link --submenu">@subChild.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+    </div>
+</nav>

@@ -1,0 +1,13 @@
+@model IPublishedElement
+@{
+    var heading = Model.Value<string>("heading") ?? "";
+    var text = Model.Value<string>("text") ?? "";
+}
+
+    <div class="block-text appear-animation animated appear-animation-visible" data-appear-animation="fadeInUp">
+        <div class="block-text__content">
+            <h3 class="block-text__heading">@heading</h3>
+            <div class="block-text__text">@Html.Raw(text)</div>
+        </div>
+    </div>
+

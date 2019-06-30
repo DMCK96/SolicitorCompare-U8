@@ -1,0 +1,49 @@
+@include component(breadcrumbs) {
+  margin-bottom: 10px;
+
+  @include part(link) {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    margin-right: 10px;
+    content: '';
+    color: $palette_a;
+
+    &:hover {
+      color: $palette_a;
+      text-decoration: underline;
+    }
+
+    @include option(disabled) {
+      color: $palette_a;
+      pointer-events: none;
+
+      &:hover {
+        color: lighten($palette_b, 30);
+        pointer-events: none;
+        text-decoration: none;
+      }
+    }
+
+    @include option(current) {
+      color: lighten($palette_b, 30);
+      pointer-events: none;
+    }
+
+    &:after {
+      margin-left: 10px;
+      content: "\003e";
+      color: lighten($palette_b, 30);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &:after {
+        content: '';
+        margin-left: 0;
+      }
+    }
+  }
+}

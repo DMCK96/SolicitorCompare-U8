@@ -1,0 +1,19 @@
+@model Umbraco.Web.PublishedModels.Solicitor
+
+@{
+
+}
+<div class="solicitor-about__heading__container">
+    <h2 class="solicitor-about__heading">About Us</h2>
+</div>
+<div class="solicitor-about">
+    <img class="solicitor-about__logo" src="@Model.Logo.Url"/>
+    <div class="solicitor-about__short-text">
+        @Model.Summary
+        <div class="solicitor-about__short-text__claim ">
+            <a href="#" class="solicitor-about__short-text__claim__button button --secondary --dark">Claim Now</a>
+        </div>
+
+    </div>
+    <div class="solicitor-about__long-text">@Html.Raw(Model.AboutUs)</div>
+</div>

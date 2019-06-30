@@ -1,0 +1,37 @@
+@model IPublishedElement
+
+@{
+    var leftHeading = Model.Value<string>("leftHeading");
+    var services = Model.Value<IEnumerable<IPublishedElement>>("services");
+    var rightHeading = Model.Value<string>("rightHeading");
+    var rightText = Model.Value<string>("rightParagraph");
+}
+
+<div class="services-text-split">
+    <div class="services-text-split__column --left">
+        <div class="services-text-split__heading">
+            @leftHeading
+        </div>
+        <div class="services-text-split__service-list">
+            @foreach (var service in services)
+            {
+                var icon = service.Value<string>("icon");
+                var serviceName = service.Value<string>("service");
+
+                <div class="services-text-split__service-list__item">
+                    <i class="@icon services-text-split__service-list__icon"></i>
+                    <div class="services-text-split__service-list__service">@serviceName</div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="services-text-split__column --right">
+        <div class="services-text-split__heading">
+            @rightHeading
+        </div>
+        <div class="services-text-split__text">
+            @rightText
+        </div>
+    </div>
+</div>

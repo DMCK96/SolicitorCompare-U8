@@ -1,0 +1,24 @@
+@using Umbraco.Web.Models
+@model CallToAction
+
+@{
+    var heading = Model.Value<string>("headlineText") ?? "";
+    var subText = Model.Value<string>("subText") ?? "";
+    var button = Model.Value<IEnumerable<IPublishedElement>>("button").First();
+
+    var buttonUrl = button.Value<Link>("location").Url;
+    var buttonText = button.Value<string>("text") ?? "";
+    var secondary = button.Value<bool>("secondaryStyling") ? "--secondary" : "";
+}
+
+<div class="call-to-action">
+    <div class="container">
+        <div class="call-to-action__content">
+            <div class="call-to-action__content__heading">@Html.Raw(heading)</div>
+            <div class="call-to-action__content__sub-text">@subText</div>
+        </div>
+        <div class="call-to-action__button">
+            <a href="@buttonUrl" class="button @secondary">@buttonText</a>
+        </div>
+    </div>
+</div>

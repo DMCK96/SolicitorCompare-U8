@@ -1,0 +1,18 @@
+﻿@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits UmbracoViewPage<Home>
+@{
+    Layout = "master.cshtml";
+    var slider = Model.HeroBanner;
+    var topSolicitors = Model.TopSolicitors;
+    var callToAction = Model.CallToAction.FirstOrDefault();
+}
+
+@Html.Partial("_Slider", slider)
+@Html.Partial("_CallToAction", callToAction)
+
+
+<div class="container">
+    @Html.Partial("_NestedContent")
+    @Html.Partial("_TopSolicitors", topSolicitors)
+</div>
+

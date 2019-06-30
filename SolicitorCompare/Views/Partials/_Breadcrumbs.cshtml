@@ -1,0 +1,15 @@
+@inherits UmbracoViewPage
+
+@{
+    var ancestors = Model.Ancestors().Reverse();
+}
+
+<div class="breadcrumbs">
+    @foreach (var ancestor in ancestors)
+    {
+        var disabled = ancestor.Value<bool>("disableLink") ? "--disabled" : "";
+        <a class="breadcrumbs__link @disabled" href="@ancestor.Url">@ancestor.Name</a>
+    }
+
+    <a class="breadcrumbs__link --current" href="#">@Model.Name</a>
+</div>

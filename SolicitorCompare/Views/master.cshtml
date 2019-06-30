@@ -1,0 +1,53 @@
+﻿@using Umbraco.Web.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@{
+    Layout = null;
+    var title = Model.Value("browserTitle");
+}
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>@Model.Name</title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="@Url.Content("~/assets/vendor/bootstrap/css/bootstrap.min.css")"/>
+        <link rel="stylesheet" href="@Url.Content("~/assets/vendor/bootstrap/css/bootstrap-theme.min.css")"/>
+        <link rel="stylesheet" href="@Url.Content("~/assets/styles/css/bloc.css")"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script type="text/javascript" src="~/assets/vendor/jquery.appear/jquery.appear.min.js"></script>
+        <script type="text/javascript" src="~/assets/js/dist/theme.js"></script>
+        <script type="text/javascript" src="~/assets/js/dist/theme.init.js"></script>
+
+        @RenderSection("Header", required: false)
+    </head>
+
+    <body>
+
+    @{
+        var redirectUrl = "";
+
+        if (Model.HasValue("redirect") && Model.Value<Link>("redirect") != null)
+        {
+            redirectUrl = Model.Value<Link>("redirect").Url;
+        }
+
+        if (!redirectUrl.IsNullOrWhiteSpace())
+        {
+            Response.Redirect(redirectUrl);
+        }
+    }
+
+    @Html.Partial("_Header")
+
+      <main>
+          @RenderBody()
+        </main>
+
+        @Html.Partial("_Footer")
+
+    <script type="text/javascript" src="~/assets/js/dist/bloc.min.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3"></script>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+@include component(blog-archive) {
+  margin-bottom: 50px;
+
+  @include part(featured-article) {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 50px;
+
+    @include part(details) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 50px;
+      background-color: rgba($black, 0.5);
+    }
+
+    @include part(title) {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    @include part(link) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      content: '';
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        color: $palette_a;
+        text-decoration: none;
+      }
+    }
+
+    @include part(excerpt) {
+      color: $white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    @include part(date) {
+      color: $palette_a;
+    }
+  }
+
+  @include part(post) {
+    display: inline-block;
+    position: relative;
+    width: 48.75%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    min-height: 250px;
+    box-sizing: border-box;
+    background-size: cover;
+    padding: 20px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.75);
+    content: '';
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    @include part(overlay) {
+      z-index: 0;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba($black, 0.5);
+      @include transition(ease, all);
+
+      &:hover {
+        background: rgba($black, 0.8);
+      }
+    }
+
+    @include part(details) {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      pointer-events: none;
+    }
+
+    @include part(title) {
+      position: relative;
+      z-index: 1;
+      font-size: 2rem;
+      color: $white;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    @include part(excerpt) {
+      position: relative;
+      z-index: 1;
+      color: $white;
+      margin-bottom: 10px;
+    }
+
+    @include part(date) {
+      position: relative;
+      z-index: 1;
+      color: $palette_a;
+    }
+  }
+
+  @include part(pagination) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include part(number) {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-right: 5px;
+      color: $basefontcolor;
+      @include transition(ease, all);
+
+      &:hover {
+        text-decoration: none;
+        color: $palette_a;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include option(current) {
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+    }
+
+    @include part(previous) {
+      display: inline-block;
+      margin-right: 20px;
+      color: $basefontcolor;
+      text-decoration: none;
+      font-weight: bold;
+      @include transition(ease, all);
+
+      @include option(disabled) {
+        color: lighten($basefontcolor, 70);
+      }
+
+      &:hover {
+        color: $palette_a;
+        text-decoration: none;
+      }
+    }
+
+    @include part(next) {
+      display: inline-block;
+      margin-left: 20px;
+      color: $basefontcolor;
+      text-decoration: none;
+      font-weight: bold;
+      @include transition(ease, all);
+
+      @include option(disabled) {
+        color: lighten($basefontcolor, 70);
+      }
+
+      &:hover {
+        color: $palette_a;
+        text-decoration: none;
+      }
+    }
+  }
+}

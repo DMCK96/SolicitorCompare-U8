@@ -1,0 +1,21 @@
+@include component(how-does-it-work) {
+  margin-bottom: 50px;
+
+  @include part(heading) {
+    text-align: center;
+  }
+
+  @include part(sub-text) {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  @include part(step) {
+    text-align: center;
+
+    @include part(heading) {
+      color: $palette_a;
+    }
+  }
+}

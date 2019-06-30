@@ -1,0 +1,42 @@
+@include component(cta) {
+    min-height: 80px;
+    padding: 25px 0;
+    background-color: #171717;
+    margin-bottom: 60px;
+    box-sizing: border-box;
+    position: relative;
+
+    @include part(content) {
+        display: inline-block;
+        width: 70%;
+        margin-right: 3%;
+
+        @include part(heading) {
+            color: $white;
+            font-size: 1.4rem;
+            line-height: 2.5rem;
+            width: 100%;
+
+            @include option(emphasis) {
+                color: $palette_a;
+                font-family: "Shadows Into Light", cursive;
+                font-size: 2.5rem;
+                font-style: italic;
+                text-transform: uppercase;
+            }
+        }
+
+        @include part(sub-text) {
+            font-size: 1.15rem;
+            color: lighten($palette_b, 20);
+        }
+    }
+
+    @include part(button) {
+        display: inline-block;
+        width: 30%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

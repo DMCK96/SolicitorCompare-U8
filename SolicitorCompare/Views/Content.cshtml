@@ -1,0 +1,17 @@
+﻿@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits UmbracoViewPage<Umbraco.Web.PublishedModels.Content>
+@{
+    Layout = "master.cshtml";
+}
+@Html.Partial("_PageHeading")
+
+<div class="container">
+    <div class="categories">
+        <h3>Categories</h3>
+    </div>
+    <div class="content">
+        @Html.Partial("_NestedContent")
+    </div>
+</div>
+
+

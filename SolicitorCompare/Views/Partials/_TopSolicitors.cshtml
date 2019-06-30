@@ -1,0 +1,25 @@
+@model IEnumerable<IPublishedContent>
+
+@{
+    var umbracoHelper = Umbraco.Web.Composing.Current.UmbracoHelper;
+    var latestSolicitors = umbracoHelper.Content(1189).Children.ToList().OrderByDescending(x => x.CreateDate).Take(5);
+    var topSolicitors = Model;
+}
+
+<div class="top-solicitors">
+    <div class="top-solicitors__container">
+        <h3 class="top-solicitors__heading">Top Solicitors</h3>
+        @foreach (var solicitor in topSolicitors)
+        {
+            <a class="top-solicitors__solicitor" href="@solicitor.Url">@solicitor.Name</a>
+        }
+    </div>
+
+    <div class="top-solicitors__container">
+        <h3 class="top-solicitors__heading">Latest Added Solicitors</h3>
+        @foreach (var solicitor in latestSolicitors)
+        {
+            <a class="top-solicitors__solicitor" href="@solicitor.Url">@solicitor.Name</a>
+        }
+    </div>
+</div>

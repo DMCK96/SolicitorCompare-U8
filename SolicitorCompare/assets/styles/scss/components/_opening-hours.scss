@@ -1,0 +1,15 @@
+@include component(opening-hours) {
+
+  @include part(item) {
+    margin-bottom: 10px;
+
+    @include part(day) {
+      width: 40%;
+      display: inline-block;
+    }
+
+    @include part(hours) {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@using System.Text.RegularExpressions
+@using SolicitorCompare.Controllers
+@{
+    var twitterController = new TwitterController();
+    var tweets = twitterController.GetTweets(count: 3);
+}
+
+<div class="twitter">
+    @foreach (var tweet in tweets)
+    {
+        var Const_TwitterDateTemplate = "ddd MMM dd HH:mm:ss +ffff yyyy";
+
+        tweet.DateTweeted = DateTime.ParseExact(tweet.DateTweetedString,
+            Const_TwitterDateTemplate, new System.Globalization.CultureInfo("en-GB"));
+
+        var text = tweet.Text.Replace("/n", " ");
+        text = Regex.Replace(text, @"http[^\s]+", "");
+
+        var url = "http://twitter.com/solicitorcom/status/" + tweet.Id;
+
+        <div class="twitter__tweet">
+            <div class="twitter__tweet__text">
+                <i class="fab fa-twitter twitter__icon"></i> @Html.Raw(text)
+            </div>
+            <a href="@url" class="twitter__tweet__date">@tweet.DateTweeted.ToString("f")</a>
+        </div>
+    }
+</div>

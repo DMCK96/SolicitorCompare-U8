@@ -30,3 +30,13 @@
 
 # Debug files
 *.dSYM/
+
+backup/
+
+\.idea/
+
+\.vs/
+
+Web\.config
+
+SolicitorCompare/node_modules/
