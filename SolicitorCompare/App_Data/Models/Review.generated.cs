@@ -60,6 +60,13 @@ namespace Umbraco.Web.PublishedModels
 		public string CustomerName => this.Value<string>("customerName");
 
 		///<summary>
+		/// Date
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
+		[ImplementPropertyType("date")]
+		public DateTime Date => this.Value<DateTime>("date");
+
+		///<summary>
 		/// Rating
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]

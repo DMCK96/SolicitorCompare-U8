@@ -1,11 +1,20 @@
 @model Umbraco.Web.PublishedModels.Solicitor
 
 @{
-  var rating = decimal.Parse(Model.Rating);
+  decimal rating = 0.00M;
+  decimal output;
+  if (decimal.TryParse(Model.Rating, out output))
+  {
+    rating = output;
+  }
 }
 
 <div class="solicitor-sidebar">
-  @Html.Partial("_SolicitorRating", rating)
+  @if (rating != 0.00M)
+  {
+    @Html.Partial("_SolicitorRating", rating)
+  }
+
   <div class="solicitor-sidebar__services">
     <div class="solicitor-sidebar__heading">Services</div>
     <ul class="solicitor-sidebar__services__list">

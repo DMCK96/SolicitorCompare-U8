@@ -1102,6 +1102,46 @@ body {
       -ms-transform: translateY(-50%);
       transform: translateY(-50%); }
 
+.form-page {
+  margin-bottom: 100px; }
+  .form-page .umbraco-forms-field {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(55, 55, 55, 0.2); }
+  .form-page .umbraco-forms-label {
+    margin-right: 20px;
+    width: 50%;
+    font-weight: bold; }
+  .form-page .umbraco-forms-indicator {
+    color: #FF0800; }
+  .form-page .umbraco-forms-field-wrapper {
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top; }
+  .form-page .radiobuttonlist {
+    border: solid 2px #009fe3;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden; }
+    .form-page .radiobuttonlist input[type=radio] {
+      position: absolute;
+      visibility: hidden;
+      display: none; }
+    .form-page .radiobuttonlist label {
+      color: #009fe3;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 5px 20px;
+      margin-right: -5px; }
+    .form-page .radiobuttonlist input[type=radio]:checked + label {
+      color: #fff;
+      background: #009fe3; }
+    .form-page .radiobuttonlist label + input[type=radio] + label {
+      border-left: solid 2px #009fe3; }
+  .form-page body {
+    background: #373737; }
+
 .header {
   background: #fff;
   border-bottom: 1px solid transparent;
@@ -1315,7 +1355,7 @@ body {
 .review-form {
   width: 75%;
   display: block;
-  margin-bottom: 50px; }
+  margin-bottom: 75px; }
   .review-form label {
     margin-bottom: 5px; }
   .review-form input {
@@ -1541,6 +1581,39 @@ body {
       .solicitor-about__short-text__claim__button {
         width: 100%;
         text-align: center; }
+
+.solicitor-reviews {
+  width: 75%;
+  margin-right: 4%;
+  display: inline-block;
+  padding-bottom: 50px; }
+  .solicitor-reviews__heading {
+    margin-bottom: 30px; }
+  .solicitor-reviews__review {
+    display: block;
+    margin-bottom: 50px;
+    padding: 40px 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 5px 25px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 25px 2px rgba(0, 0, 0, 0.2); }
+    .solicitor-reviews__review:last-child {
+      margin-bottom: 0; }
+    .solicitor-reviews__review__information {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(55, 55, 55, 0.2); }
+    .solicitor-reviews__review__name {
+      display: inline-block;
+      font-size: 1.3rem;
+      margin: 0 10px 5px 0;
+      font-weight: bold; }
+    .solicitor-reviews__review__date {
+      font-size: 0.9rem; }
+    .solicitor-reviews__review__rating {
+      display: inline-block; }
+    .solicitor-reviews__review__icon {
+      color: #009fe3;
+      font-size: 1.3rem; }
 
 .solicitor-sidebar {
   width: 20%;

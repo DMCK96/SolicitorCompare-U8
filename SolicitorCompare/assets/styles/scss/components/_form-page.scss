@@ -1,0 +1,60 @@
+@include component(form-page) {
+  margin-bottom: 100px;
+
+  .umbraco-forms-field {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba($palette_b, 0.2);
+  }
+
+  .umbraco-forms-label {
+    margin-right: 20px;
+    width: 50%;
+    font-weight: bold;
+  }
+
+  .umbraco-forms-indicator {
+    color: $palette_f;
+  }
+
+  .umbraco-forms-field-wrapper {
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .radiobuttonlist {
+    border: solid 2px $palette_a;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden;
+
+    input[type=radio] {
+      position: absolute;
+      visibility: hidden;
+      display: none;
+    }
+
+    label {
+      color: $palette_a;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 5px 20px;
+      margin-right: -5px;
+    }
+
+    input[type=radio]:checked + label{
+      color: $white;
+      background: $palette_a;
+    }
+
+    label + input[type=radio] + label {
+      border-left: solid 2px $palette_a;
+    }
+  }
+
+  body {
+    background: $palette_b;
+  }
+}

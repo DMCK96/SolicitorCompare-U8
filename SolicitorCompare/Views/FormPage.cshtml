@@ -3,9 +3,12 @@
 @{
   Layout = "master.cshtml";
   var form = Model.Form.ToString();
+  var formHtml = Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid = form, ExcludeScripts = "1"}).ToHtmlString().Replace("<br />", "");
 }
 @Html.Partial("_PageHeading")
 
 <div class="container">
-
+  <div class="form-page">
+    @Html.Raw(formHtml)
+  </div>
 </div>

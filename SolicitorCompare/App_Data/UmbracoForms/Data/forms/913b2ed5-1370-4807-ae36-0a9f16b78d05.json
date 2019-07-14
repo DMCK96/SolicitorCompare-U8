@@ -170,10 +170,16 @@
               ]
             }
           ],
-          "condition": null
+          "condition": {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "enabled": false,
+            "actionType": "Show",
+            "logicType": "All",
+            "rules": []
+          }
         }
       ],
-      "caption": "Your comment",
+      "caption": "Leave a Review",
       "sortOrder": 0,
       "id": "00000000-0000-0000-0000-000000000000",
       "form": "00000000-0000-0000-0000-000000000000"

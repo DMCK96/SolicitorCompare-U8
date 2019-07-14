@@ -1,0 +1,28 @@
+@model Umbraco.Web.PublishedModels.Solicitor
+
+@{
+  var reviews = Model.ListOfReviews.ToList().OrderByDescending(x => x.Date).Take(3);
+}
+
+<div class="solicitor-reviews">
+  <h2 class="solicitor-reviews__heading">Latest Reviews</h2>
+    @foreach (var review in reviews)
+     {
+       <div class="solicitor-reviews__review">
+         <div class="solicitor-reviews__review__information">
+           <div class="solicitor-reviews__review__name">Daniel Mckibbin</div>
+           <div class="solicitor-reviews__review__rating">
+             @for (int i = 0; i < review.Rating; i++)
+             {
+               <i class="fas fa-star solicitor-reviews__review__icon"></i>
+             }
+           </div>
+           <div class="solicitor-reviews__review__date">@review.Date.ToString("D")</div>
+         </div>
+
+         <div class="solicitor-reviews__review__content">
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris vitae ultricies. Proin nibh nisl condimentum id venenatis.
+         </div>
+       </div>
+     }
+</div>

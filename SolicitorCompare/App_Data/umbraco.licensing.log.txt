@@ -84,3 +84,7 @@ Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorComp
 Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
 Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
 Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
+Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
+Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
+Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:
+Could not find any UmbracoForms licensing files in D:\Repositories\SolicitorCompare\SolicitorCompare\bin:

@@ -1,0 +1,275 @@
+{
+  "name": "Solicitor Search",
+  "created": "2019-07-14T19:26:14.168694+01:00",
+  "pages": [
+    {
+      "fieldSets": [
+        {
+          "caption": null,
+          "sortOrder": 0,
+          "id": "128fc97f-c510-4555-a859-c8f7f1fb0d48",
+          "page": "00000000-0000-0000-0000-000000000000",
+          "containers": [
+            {
+              "caption": null,
+              "width": 12,
+              "fields": [
+                {
+                  "caption": "What was the date of your accident?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "dateOfAccident",
+                  "id": "b39424b8-4416-4580-e67f-4f7fedc299a3",
+                  "fieldTypeId": "f8b4c3b8-af28-11de-9dd8-ef5956d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": []
+                },
+                {
+                  "caption": "Was the accident your fault?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "fault",
+                  "id": "79422de8-f5de-4ed0-fb11-cce18e9170b8",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "Not Sure",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Did you have any passengers in the vehicle?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "passengers",
+                  "id": "09bf4487-3169-4b4b-a14b-640039bba08c",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Do you think the damage to your vehicle was/will be more than £500?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "damage",
+                  "id": "008d2ca3-2875-4567-aa5c-24683e74e544",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "Not Sure",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Did you have any passengers under the age of 18?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "minors",
+                  "id": "7bd567ed-0e58-4dc0-b4a9-59dcd8771903",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Did you visit your GP / Hospital / local NHS centre as a result of your accident?",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "visitHospital",
+                  "id": "ae3b2302-175b-4136-c1d7-28c62c61d147",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Was your accident on a roundabout, car park or whilst changing lanes?",
+                  "tooltip": "",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "obscureLocation",
+                  "id": "94835082-5ad2-4710-a2d6-b1e88a466187",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Have you already received any compensation payments relating to this accident? Vehicle repairs do not count.",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "receivedCompensation",
+                  "id": "aabb5db0-c614-4753-e60f-7b5ef342eab2",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {},
+                  "preValues": [
+                    "Yes",
+                    "Not Sure",
+                    "No"
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": null
+        }
+      ],
+      "caption": "Please tell us about your incident",
+      "sortOrder": 0,
+      "id": "00000000-0000-0000-0000-000000000000",
+      "form": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "id": "7b68b55a-a47c-4247-a755-6b74ee09104f",
+  "fieldIndicationType": "MarkMandatoryFields",
+  "indicator": "*",
+  "showValidationSummary": false,
+  "hideFieldValidation": false,
+  "requiredErrorMessage": "Please provide a value for {0}",
+  "invalidErrorMessage": "Please provide a valid value for {0}",
+  "messageOnSubmit": "Thank you",
+  "goToPageOnSubmit": 0,
+  "xPathOnSubmit": null,
+  "manualApproval": false,
+  "storeRecordsLocally": true,
+  "cssClass": null,
+  "disableDefaultStylesheet": false,
+  "useClientDependency": false,
+  "workflows": [
+    "1f85e471-1785-4d1a-9d02-adf6c4856f6c"
+  ],
+  "datasource": null,
+  "submitLabel": "Submit",
+  "nextLabel": "Next",
+  "prevLabel": "Previous"
+}

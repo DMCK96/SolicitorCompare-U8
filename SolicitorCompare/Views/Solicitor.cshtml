@@ -15,6 +15,11 @@
 
     @Html.Partial("_SolicitorSidebar", Model)
 
+    @if (Model.ListOfReviews.Any())
+    {
+      @Html.Partial("_SolicitorReviews", Model)
+    }
+
     @if (!form.IsNullOrWhiteSpace())
     {
       <div class="review-form">

@@ -30,6 +30,7 @@ namespace SolicitorCompare.UmbracoForms.Workflow
       var solicitor = "";
       var customerName = "";
       var comment = "";
+      var date = record.Created;
 
       //Iterate through the fields and assign variables based on alias.
       foreach (RecordField rf in record.RecordFields.Values)
@@ -94,6 +95,10 @@ namespace SolicitorCompare.UmbracoForms.Workflow
         {
           "rating",
           starRating
+        },
+        {
+          "date",
+          date.ToString("DD-MM-YYYY")
         },
         {
           "comment",
