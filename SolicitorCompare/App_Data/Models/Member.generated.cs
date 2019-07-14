@@ -64,28 +64,28 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberFailedPasswordAttempts")]
-		public decimal UmbracoMemberFailedPasswordAttempts => this.Value<decimal>("umbracoMemberFailedPasswordAttempts");
+		public string UmbracoMemberFailedPasswordAttempts => this.Value<string>("umbracoMemberFailedPasswordAttempts");
 
 		///<summary>
 		/// Last Lockout Date
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberLastLockoutDate")]
-		public decimal UmbracoMemberLastLockoutDate => this.Value<decimal>("umbracoMemberLastLockoutDate");
+		public string UmbracoMemberLastLockoutDate => this.Value<string>("umbracoMemberLastLockoutDate");
 
 		///<summary>
 		/// Last Login Date
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberLastLogin")]
-		public decimal UmbracoMemberLastLogin => this.Value<decimal>("umbracoMemberLastLogin");
+		public string UmbracoMemberLastLogin => this.Value<string>("umbracoMemberLastLogin");
 
 		///<summary>
 		/// Last Password Change Date
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberLastPasswordChangeDate")]
-		public decimal UmbracoMemberLastPasswordChangeDate => this.Value<decimal>("umbracoMemberLastPasswordChangeDate");
+		public string UmbracoMemberLastPasswordChangeDate => this.Value<string>("umbracoMemberLastPasswordChangeDate");
 
 		///<summary>
 		/// Is Locked Out
@@ -99,13 +99,13 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberPasswordRetrievalAnswer")]
-		public decimal UmbracoMemberPasswordRetrievalAnswer => this.Value<decimal>("umbracoMemberPasswordRetrievalAnswer");
+		public string UmbracoMemberPasswordRetrievalAnswer => this.Value<string>("umbracoMemberPasswordRetrievalAnswer");
 
 		///<summary>
 		/// Password Question
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("umbracoMemberPasswordRetrievalQuestion")]
-		public decimal UmbracoMemberPasswordRetrievalQuestion => this.Value<decimal>("umbracoMemberPasswordRetrievalQuestion");
+		public string UmbracoMemberPasswordRetrievalQuestion => this.Value<string>("umbracoMemberPasswordRetrievalQuestion");
 	}
 }

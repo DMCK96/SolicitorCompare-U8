@@ -18,6 +18,23 @@
     }
   }
 
+  @include part(rating) {
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include part(number) {
+      font-size: 2rem;
+      line-height: 2rem;
+      color: $palette_a;
+      margin-bottom: 10px;
+    }
+
+    @include part(icon) {
+      color: $palette_a;
+      font-size: 1.3rem;
+    }
+  }
+
 
   @include part(opening-times) {
 
@@ -28,5 +45,4 @@
     font-size: 1.3rem;
     margin-bottom: 15px;
   }
-
 }

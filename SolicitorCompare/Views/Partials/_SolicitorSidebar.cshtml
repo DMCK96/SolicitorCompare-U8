@@ -1,21 +1,23 @@
 @model Umbraco.Web.PublishedModels.Solicitor
 
 @{
+  var rating = decimal.Parse(Model.Rating);
 }
 
 <div class="solicitor-sidebar">
-    <div class="solicitor-sidebar__services">
-        <div class="solicitor-sidebar__heading">Services</div>
-        <ul class="solicitor-sidebar__services__list">
-            @foreach (var service in Model.Services)
-            {
-                <li class="solicitor-sidebar__services__list__service">@service</li>
-            }
-        </ul>
-    </div>
+  @Html.Partial("_SolicitorRating", rating)
+  <div class="solicitor-sidebar__services">
+    <div class="solicitor-sidebar__heading">Services</div>
+    <ul class="solicitor-sidebar__services__list">
+      @foreach (var service in Model.Services)
+      {
+        <li class="solicitor-sidebar__services__list__service">@service</li>
+      }
+    </ul>
+  </div>
 
-    <div class="solicitor-sidebar__opening-times">
-      <div class="solicitor-sidebar__heading">Opening Times</div>
-      @Html.Partial("_OpeningHours", Model.OpeningHours)
-    </div>
+  <div class="solicitor-sidebar__opening-times">
+    <div class="solicitor-sidebar__heading">Opening Times</div>
+    @Html.Partial("_OpeningHours", Model.OpeningHours)
+  </div>
 </div>

@@ -67,6 +67,13 @@ namespace Umbraco.Web.PublishedModels
 		public string City => this.Value<string>("city");
 
 		///<summary>
+		/// List of Reviews
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
+		[ImplementPropertyType("listOfReviews")]
+		public IEnumerable<Review> ListOfReviews => this.Value<IEnumerable<Review>>("listOfReviews");
+
+		///<summary>
 		/// Logo
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
@@ -114,6 +121,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
 		[ImplementPropertyType("postcode")]
 		public string Postcode => this.Value<string>("postcode");
+
+		///<summary>
+		/// Rating
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.0.4")]
+		[ImplementPropertyType("rating")]
+		public string Rating => this.Value<string>("rating");
 
 		///<summary>
 		/// Services: Services that the solicitor provides

@@ -3,7 +3,7 @@
 @inherits UmbracoViewPage<Umbraco.Web.PublishedModels.Solicitor>
 @{
     Layout = "master.cshtml";
-  Session["solicitor"] = Model.Name;
+  Session["solicitor"] = Model.Id;
   var siteSettings = Umbraco.ContentSingleAtXPath(XPath.SiteSettingsNode);
   var form = siteSettings.Value<string>("reviewForm");
 }

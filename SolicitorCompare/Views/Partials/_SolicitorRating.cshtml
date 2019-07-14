@@ -1,0 +1,18 @@
+@model decimal
+
+@{
+  var count = decimal.ToInt32(decimal.Floor(Model));
+  var rating = Model.ToString("0.##");
+}
+<div class="solicitor-sidebar__rating">
+  <div class="solicitor-sidebar__heading">Rating</div>
+  <div class="solicitor-sidebar__rating__number">
+    @rating
+  </div>
+  <div class="solicitor-sidebar__rating__stars">
+    @for (int i = 0; i < count; i++)
+    {
+      <i class="fas fa-star solicitor-sidebar__rating__icon"></i>
+    }
+  </div>
+</div>

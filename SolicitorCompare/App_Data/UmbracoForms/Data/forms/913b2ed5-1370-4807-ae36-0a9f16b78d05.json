@@ -75,7 +75,7 @@
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
-                  "mandatory": true,
+                  "mandatory": false,
                   "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
@@ -194,7 +194,9 @@
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
-  "workflows": [],
+  "workflows": [
+    "b6aa1eeb-8313-4052-bfd7-9402cc590111"
+  ],
   "datasource": null,
   "submitLabel": "Submit",
   "nextLabel": "Next",

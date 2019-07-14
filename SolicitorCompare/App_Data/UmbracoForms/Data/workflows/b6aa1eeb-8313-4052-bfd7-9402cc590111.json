@@ -1,0 +1,10 @@
+{
+  "id": "b6aa1eeb-8313-4052-bfd7-9402cc590111",
+  "name": "Add review to solicitor",
+  "form": "913b2ed5-1370-4807-ae36-0a9f16b78d05",
+  "active": true,
+  "workflowTypeId": "ccbeb0d5-adaa-4729-8b4c-4bb439dc0202",
+  "executesOn": "Approved",
+  "settings": {},
+  "sortOrder": 0
+}
