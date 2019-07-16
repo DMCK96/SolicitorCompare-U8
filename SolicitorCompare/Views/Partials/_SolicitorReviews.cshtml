@@ -10,7 +10,7 @@
      {
        <div class="solicitor-reviews__review">
          <div class="solicitor-reviews__review__information">
-           <div class="solicitor-reviews__review__name">Daniel Mckibbin</div>
+           <div class="solicitor-reviews__review__name">@review.CustomerName</div>
            <div class="solicitor-reviews__review__rating">
              @for (int i = 0; i < review.Rating; i++)
              {
@@ -21,7 +21,7 @@
          </div>
 
          <div class="solicitor-reviews__review__content">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Parturient montes nascetur ridiculus mus mauris vitae ultricies. Proin nibh nisl condimentum id venenatis.
+           @review.Comment
          </div>
        </div>
      }

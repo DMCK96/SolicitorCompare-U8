@@ -1,0 +1,16 @@
+{
+  "id": "a6f4cf08-3759-4fcf-a07b-8722ee3a818c",
+  "name": "Send template email to daniel@atomstudios.net",
+  "form": "840240ef-4d47-45e3-ace3-c04fe45877ab",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "daniel@atomstudios.net",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

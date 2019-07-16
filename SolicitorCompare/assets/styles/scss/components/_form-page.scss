@@ -1,16 +1,47 @@
 @include component(form-page) {
   margin-bottom: 100px;
 
+  .umbraco-forms-caption {
+    padding: 20px 15px;
+    background-color: lighten($palette_c, 8);
+    color: $palette_a;
+    font-family: $headingfont;
+    text-transform: capitalize;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .checkbox label {
+    padding-left: 0;
+  }
+
+  legend {
+    padding: 20px 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: $headingfont;
+  }
+
   .umbraco-forms-field {
     padding-bottom: 15px;
     margin-bottom: 15px;
     border-bottom: 1px solid rgba($palette_b, 0.2);
   }
 
+  .umbraco-forms-title-field {
+    display: inline-block;
+    width: 40%;
+    padding-right: 50px;
+  }
+
   .umbraco-forms-label {
     margin-right: 20px;
-    width: 50%;
+    line-height: 1.5rem;
     font-weight: bold;
+  }
+
+  .umbraco-forms-tooltip {
+    font-size: 0.75rem;
   }
 
   .umbraco-forms-indicator {
@@ -18,9 +49,137 @@
   }
 
   .umbraco-forms-field-wrapper {
+    max-width: calc(50% - 25px);
     line-height: 20px;
     display: inline-block;
     vertical-align: top;
+  }
+
+  .checkboxlist {
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+      position: absolute;
+      left: -9999px;
+    }
+
+    [type="checkbox"]:not(:checked) + label,
+    [type="checkbox"]:checked + label {
+      position: relative;
+      padding-left: 70px;
+      line-height: 30px;
+      cursor: pointer;
+    }
+
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before,
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+      content: '';
+      position: absolute;
+    }
+
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before {
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 30px;
+      background: $palette_c;
+      border-radius: 10px;
+      transition: background-color .2s;
+    }
+
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+      width: 25px;
+      height: 30px;
+      transition: all .2s;
+      border-radius: 10px 0 0 10px;
+      background: lighten($palette_b, 20);
+      top: 0;
+      left: 0;
+    }
+
+    /* on checked */
+    [type="checkbox"]:checked + label:before {
+      background: $palette_c;
+    }
+
+    [type="checkbox"]:checked + label:after {
+      background: $palette_a;
+      top: 0;
+      left: 25px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    [type="checkbox"]:checked + label .ui,
+    [type="checkbox"]:not(:checked) + label .ui:before,
+    [type="checkbox"]:checked + label .ui:after {
+      position: absolute;
+      left: 0;
+      width: 60px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 22px;
+      transition: all .2s;
+    }
+
+    [type="checkbox"]:not(:checked) + label .ui:before {
+      font-family: 'FontAwesome';
+      content: "\f00d";
+      left: 46px;
+      margin-top: 3px;
+    }
+
+    [type="checkbox"]:checked + label .ui:after {
+      font-family: 'FontAwesome';
+      content: "\f00c";
+      color: #39D2B4;
+      margin-top: 3px;
+      left: 12px;
+    }
+
+    [type="checkbox"]:focus + label:before {
+      border: 0;
+      outline: 0;
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+      -webkit-user-select: none; /* Chrome, Safari, and Opera */
+      -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+    }
+  }
+
+  .checkbox {
+    input[type=checkbox] {
+      margin-left: 0;
+    }
+
+    input[type='checkbox']:after{
+      line-height: 30px;
+      font-size: 1.5rem;
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 1px solid darken($palette_c, 15);
+      border-radius: 0.25em;
+      background: $palette_c;
+      color: $palette_a;
+      transition: all ease 0.5s;
+      text-align: center;
+      font-family: FontAwesome;
+    }
+
+    input[type='checkbox']:checked:after {
+      content: '\f00c';
+    }
   }
 
   .radiobuttonlist {
@@ -42,15 +201,51 @@
       font-weight: bold;
       padding: 5px 20px;
       margin-right: -5px;
+      transition: all ease 0.5s;
     }
 
-    input[type=radio]:checked + label{
+    input[type=radio]:checked + label {
       color: $white;
       background: $palette_a;
     }
 
     label + input[type=radio] + label {
       border-left: solid 2px $palette_a;
+    }
+  }
+
+  input[type=text] {
+     padding: 10px 5px;
+     min-width: 500px;
+   }
+
+  textarea {
+    padding: 10px 5px;
+    max-height: 100px;
+    min-width: 500px;
+    resize: none;
+    line-height: 1.5rem;
+  }
+
+  input[type=submit] {
+    max-width: 150px;
+    padding: 10px 30px;
+    border: 1px solid $white;
+    background: $palette_a;
+    color: $white;
+    transition: all ease 0.5s;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    display: inline-block;
+
+    &:hover {
+      border: 1px solid $palette_a;
+      border-radius: 10px;
+      color: $palette_b;
+      background-color: $white;
+      text-decoration: none;
     }
   }
 

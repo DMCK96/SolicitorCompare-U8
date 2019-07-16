@@ -1104,20 +1104,149 @@ body {
 
 .form-page {
   margin-bottom: 100px; }
+  .form-page .umbraco-forms-caption {
+    padding: 20px 15px;
+    background-color: whitesmoke;
+    color: #009fe3;
+    font-family: "Open Sans", sans-serif;
+    text-transform: capitalize;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; }
+  .form-page .checkbox label {
+    padding-left: 0; }
+  .form-page legend {
+    padding: 20px 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif; }
   .form-page .umbraco-forms-field {
     padding-bottom: 15px;
     margin-bottom: 15px;
     border-bottom: 1px solid rgba(55, 55, 55, 0.2); }
+  .form-page .umbraco-forms-title-field {
+    display: inline-block;
+    width: 40%;
+    padding-right: 50px; }
   .form-page .umbraco-forms-label {
     margin-right: 20px;
-    width: 50%;
+    line-height: 1.5rem;
     font-weight: bold; }
+  .form-page .umbraco-forms-tooltip {
+    font-size: 0.75rem; }
   .form-page .umbraco-forms-indicator {
     color: #FF0800; }
   .form-page .umbraco-forms-field-wrapper {
+    max-width: calc(50% - 25px);
     line-height: 20px;
     display: inline-block;
     vertical-align: top; }
+  .form-page .checkboxlist {
+    /* on checked */ }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked),
+    .form-page .checkboxlist [type="checkbox"]:checked {
+      position: absolute;
+      left: -9999px; }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label,
+    .form-page .checkboxlist [type="checkbox"]:checked + label {
+      position: relative;
+      padding-left: 70px;
+      line-height: 30px;
+      cursor: pointer; }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label:before,
+    .form-page .checkboxlist [type="checkbox"]:checked + label:before,
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label:after,
+    .form-page .checkboxlist [type="checkbox"]:checked + label:after {
+      content: '';
+      position: absolute; }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label:before,
+    .form-page .checkboxlist [type="checkbox"]:checked + label:before {
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 30px;
+      background: #e1e1e1;
+      border-radius: 10px;
+      -webkit-transition: background-color .2s;
+      -o-transition: background-color .2s;
+      transition: background-color .2s; }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label:after,
+    .form-page .checkboxlist [type="checkbox"]:checked + label:after {
+      width: 25px;
+      height: 30px;
+      -webkit-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s;
+      border-radius: 10px 0 0 10px;
+      background: #6a6a6a;
+      top: 0;
+      left: 0; }
+    .form-page .checkboxlist [type="checkbox"]:checked + label:before {
+      background: #e1e1e1; }
+    .form-page .checkboxlist [type="checkbox"]:checked + label:after {
+      background: #009fe3;
+      top: 0;
+      left: 25px;
+      border-radius: 0 10px 10px 0; }
+    .form-page .checkboxlist [type="checkbox"]:checked + label .ui,
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label .ui:before,
+    .form-page .checkboxlist [type="checkbox"]:checked + label .ui:after {
+      position: absolute;
+      left: 0;
+      width: 60px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 22px;
+      -webkit-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s; }
+    .form-page .checkboxlist [type="checkbox"]:not(:checked) + label .ui:before {
+      font-family: 'FontAwesome';
+      content: "\f00d";
+      left: 46px;
+      margin-top: 3px; }
+    .form-page .checkboxlist [type="checkbox"]:checked + label .ui:after {
+      font-family: 'FontAwesome';
+      content: "\f00c";
+      color: #39D2B4;
+      margin-top: 3px;
+      left: 12px; }
+    .form-page .checkboxlist [type="checkbox"]:focus + label:before {
+      border: 0;
+      outline: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box; }
+    .form-page .checkboxlist label {
+      display: block;
+      margin-bottom: 10px;
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer */
+      -webkit-user-select: none;
+      /* Chrome, Safari, and Opera */
+      -webkit-touch-callout: none;
+      /* Disable Android and iOS callouts*/ }
+  .form-page .checkbox input[type=checkbox] {
+    margin-left: 0; }
+  .form-page .checkbox input[type='checkbox']:after {
+    line-height: 30px;
+    font-size: 1.5rem;
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.25em;
+    background: #e1e1e1;
+    color: #009fe3;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    text-align: center;
+    font-family: FontAwesome; }
+  .form-page .checkbox input[type='checkbox']:checked:after {
+    content: '\f00c'; }
   .form-page .radiobuttonlist {
     border: solid 2px #009fe3;
     display: inline-block;
@@ -1133,12 +1262,45 @@ body {
       cursor: pointer;
       font-weight: bold;
       padding: 5px 20px;
-      margin-right: -5px; }
+      margin-right: -5px;
+      -webkit-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      transition: all ease 0.5s; }
     .form-page .radiobuttonlist input[type=radio]:checked + label {
       color: #fff;
       background: #009fe3; }
     .form-page .radiobuttonlist label + input[type=radio] + label {
       border-left: solid 2px #009fe3; }
+  .form-page input[type=text] {
+    padding: 10px 5px;
+    min-width: 500px; }
+  .form-page textarea {
+    padding: 10px 5px;
+    max-height: 100px;
+    min-width: 500px;
+    resize: none;
+    line-height: 1.5rem; }
+  .form-page input[type=submit] {
+    max-width: 150px;
+    padding: 10px 30px;
+    border: 1px solid #fff;
+    background: #009fe3;
+    color: #fff;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block; }
+    .form-page input[type=submit]:hover {
+      border: 1px solid #009fe3;
+      border-radius: 10px;
+      color: #373737;
+      background-color: #fff;
+      text-decoration: none; }
   .form-page body {
     background: #373737; }
 
