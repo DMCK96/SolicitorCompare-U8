@@ -1,19 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
-using Newtonsoft.Json;
-using Serilog.Core;
 using Umbraco.Core;
-using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.Services;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Persistence.Dtos;
-using Umbraco.Web;
-using Umbraco.Web.PublishedModels;
-using File = System.IO.File;
 
 namespace SolicitorCompare.UmbracoForms.Workflow
 {
@@ -22,8 +14,10 @@ namespace SolicitorCompare.UmbracoForms.Workflow
     private readonly IContentService _contentService;
     private readonly IMediaService _mediaService;
     private readonly IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
+    private readonly IDataTypeService _dataTypeService;
 
-    public SubmitSolicitorWorkflow(IContentService contentService, IMediaService mediaService, IContentTypeBaseServiceProvider contentTypeBaseServiceProvider)
+    public SubmitSolicitorWorkflow(IContentService contentService, IMediaService mediaService,
+      IContentTypeBaseServiceProvider contentTypeBaseServiceProvider, IDataTypeService dataTypeService)
     {
       this.Id = new Guid("7159f821-b97c-4a36-8efd-3b1482017c91");
       this.Name = "SubmitSolicitorWorkflow";
@@ -32,21 +26,24 @@ namespace SolicitorCompare.UmbracoForms.Workflow
       _contentService = contentService;
       _mediaService = mediaService;
       _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
+      _dataTypeService = dataTypeService;
     }
+
     public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
     {
       string solicitorName = "";
-      string summary;
-      string about;
+      string summary = "";
+      string about = "";
       List<string> services = new List<string>();
-      string openingHours;
-      string addressLineOne;
-      string postcode;
-      string city;
-      bool medicalAttention;
-      bool minors;
-      bool obscureLocation;
-      int maximumMonths;
+      string openingHours = "";
+      string logoPath = "";
+      string addressLineOne = "";
+      string postcode = "";
+      string city = "";
+      bool medicalAttention = false;
+      bool minors = false;
+      bool obscureLocation = false;
+      int maximumMonths = 18;
 
       //Iterate through the fields and assign variables based on alias.
       foreach (RecordField rf in record.RecordFields.Values)
@@ -58,28 +55,7 @@ namespace SolicitorCompare.UmbracoForms.Workflow
 
         if (rf.Alias == "logo")
         {
-          try
-          {
-            var logoPath = rf.ValuesAsString().Replace("/", @"\");
-            var projectPath =
-              System.AppDomain.CurrentDomain.BaseDirectory.Remove(
-                System.AppDomain.CurrentDomain.BaseDirectory.Length - 1);
-            var path = projectPath + logoPath;
-
-            var file = new FileStream(path, FileMode.Open);
-            var media = _mediaService.CreateMediaWithIdentity(solicitorName, 1227, "Image");
-
-            using (FileStream stream = System.IO.File.Open(path, FileMode.Open))
-            {
-              media.SetValue(_contentTypeBaseServiceProvider, "umbracoFile", solicitorName, stream);
-            }
-            _mediaService.Save(media);
-          }
-
-          catch (Exception ex)
-          {
-            var bp = ex;
-          }
+          logoPath = rf.ValuesAsString().Replace("/", @"\");
         }
 
         if (rf.Alias == "summary")
@@ -137,20 +113,48 @@ namespace SolicitorCompare.UmbracoForms.Workflow
 
         if (rf.Alias == "maximumMonthsSinceIncident")
         {
-          if(!Int32.TryParse(rf.ValuesAsString(), out maximumMonths))
+          if (!Int32.TryParse(rf.ValuesAsString(), out maximumMonths))
           {
             maximumMonths = 18;
           }
         }
       }
 
-      //var solicitorNode = _contentService.CreateAndSave(solicitorName, 1189, "solicitor");
-      var node = _contentService.GetByLevel(2);
+      var solicitorNode = _contentService.CreateAndSave(solicitorName, 1189, "solicitor");
 
-      // Each entry requires a unique GUID, generate here.
-      var key = Guid.NewGuid().ToString();
+      if (!logoPath.IsNullOrWhiteSpace())
+      {
+        var projectPath =
+          System.AppDomain.CurrentDomain.BaseDirectory.Remove(
+            System.AppDomain.CurrentDomain.BaseDirectory.Length - 1);
+        var path = projectPath + logoPath;
 
-      //_contentService.SaveAndPublish(solicitorNode);
+        var media = _mediaService.CreateMediaWithIdentity(solicitorName, 1227, "Image");
+
+        using (FileStream stream = System.IO.File.Open(path, FileMode.Open))
+        {
+          media.SetValue(_contentTypeBaseServiceProvider, "umbracoFile", logoPath, stream);
+        }
+
+        _mediaService.Save(media);
+
+        solicitorNode.SetValue("logo", media.GetUdi().ToString());
+      }
+
+      var servicesString = string.Join(Environment.NewLine, services);
+      solicitorNode.SetValue("summary", summary);
+      solicitorNode.SetValue("aboutUs", about);
+      solicitorNode.SetValue("services", servicesString);
+      solicitorNode.SetValue("submittedOpeningHours", openingHours);
+      solicitorNode.SetValue("addressLine1", addressLineOne);
+      solicitorNode.SetValue("postcode", postcode);
+      solicitorNode.SetValue("city", city);
+      solicitorNode.SetValue("medicalAttention", medicalAttention);
+      solicitorNode.SetValue("minors", minors);
+      solicitorNode.SetValue("obscureLocation", obscureLocation);
+      solicitorNode.SetValue("maximumTime", maximumMonths);
+
+      _contentService.Save(solicitorNode);
 
       return WorkflowExecutionStatus.Completed;
     }
@@ -161,4 +165,3 @@ namespace SolicitorCompare.UmbracoForms.Workflow
     }
   }
 }
-
