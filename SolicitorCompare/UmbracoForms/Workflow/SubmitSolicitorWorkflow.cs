@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using Umbraco.Core;
 using Umbraco.Core.Services;
 using Umbraco.Forms.Core;
@@ -27,6 +28,11 @@ namespace SolicitorCompare.UmbracoForms.Workflow
       _mediaService = mediaService;
       _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
       _dataTypeService = dataTypeService;
+    }
+
+    class Service
+    {
+      public string value { get; set; }
     }
 
     public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
@@ -120,7 +126,7 @@ namespace SolicitorCompare.UmbracoForms.Workflow
         }
       }
 
-      var solicitorNode = _contentService.CreateAndSave(solicitorName, 1189, "solicitor");
+      var solicitorNode = _contentService.CreateAndSave(solicitorName, 1365, "solicitor");
 
       if (!logoPath.IsNullOrWhiteSpace())
       {
@@ -141,7 +147,7 @@ namespace SolicitorCompare.UmbracoForms.Workflow
         solicitorNode.SetValue("logo", media.GetUdi().ToString());
       }
 
-      var servicesString = string.Join(Environment.NewLine, services);
+      var servicesString = JsonConvert.SerializeObject(services);
       solicitorNode.SetValue("summary", summary);
       solicitorNode.SetValue("aboutUs", about);
       solicitorNode.SetValue("services", servicesString);
