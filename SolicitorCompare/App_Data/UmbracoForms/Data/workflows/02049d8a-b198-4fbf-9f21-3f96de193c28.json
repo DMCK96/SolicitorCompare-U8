@@ -1,0 +1,10 @@
+{
+  "id": "02049d8a-b198-4fbf-9f21-3f96de193c28",
+  "name": "Save Solicitor",
+  "form": "840240ef-4d47-45e3-ace3-c04fe45877ab",
+  "active": true,
+  "workflowTypeId": "7159f821-b97c-4a36-8efd-3b1482017c91",
+  "executesOn": "Approved",
+  "settings": {},
+  "sortOrder": 0
+}

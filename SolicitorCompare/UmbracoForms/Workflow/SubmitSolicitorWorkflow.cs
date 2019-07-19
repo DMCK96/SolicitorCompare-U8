@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Web;
 using Newtonsoft.Json;
+using Serilog.Core;
+using Umbraco.Core;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.Services;
 using Umbraco.Forms.Core;
@@ -9,117 +13,144 @@ using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Persistence.Dtos;
 using Umbraco.Web;
 using Umbraco.Web.PublishedModels;
+using File = System.IO.File;
 
 namespace SolicitorCompare.UmbracoForms.Workflow
 {
   public class SubmitSolicitorWorkflow : WorkflowType
   {
     private readonly IContentService _contentService;
+    private readonly IMediaService _mediaService;
+    private readonly IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
 
-    public SubmitSolicitorWorkflow(IContentService contentService)
+    public SubmitSolicitorWorkflow(IContentService contentService, IMediaService mediaService, IContentTypeBaseServiceProvider contentTypeBaseServiceProvider)
     {
       this.Id = new Guid("7159f821-b97c-4a36-8efd-3b1482017c91");
       this.Name = "SubmitSolicitorWorkflow";
-      this.Icon = "icon-rate";
+      this.Icon = "icon-user";
 
       _contentService = contentService;
+      _mediaService = mediaService;
+      _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
     }
     public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
     {
-      var starRating = 0;
-      var solicitor = "";
-      var customerName = "";
-      var comment = "";
-      var date = record.Created;
+      string solicitorName = "";
+      string summary;
+      string about;
+      List<string> services = new List<string>();
+      string openingHours;
+      string addressLineOne;
+      string postcode;
+      string city;
+      bool medicalAttention;
+      bool minors;
+      bool obscureLocation;
+      int maximumMonths;
 
       //Iterate through the fields and assign variables based on alias.
       foreach (RecordField rf in record.RecordFields.Values)
       {
-        if (rf.Alias == "starRating")
+        if (rf.Alias == "solicitorName")
         {
-          starRating = Int32.Parse(rf.ValuesAsString());
+          solicitorName = rf.ValuesAsString();
         }
 
-        if (rf.Alias == "solicitor")
+        if (rf.Alias == "logo")
         {
-          solicitor = rf.ValuesAsString();
+          try
+          {
+            var logoPath = rf.ValuesAsString().Replace("/", @"\");
+            var projectPath =
+              System.AppDomain.CurrentDomain.BaseDirectory.Remove(
+                System.AppDomain.CurrentDomain.BaseDirectory.Length - 1);
+            var path = projectPath + logoPath;
+
+            var file = new FileStream(path, FileMode.Open);
+            var media = _mediaService.CreateMediaWithIdentity(solicitorName, 1227, "Image");
+
+            using (FileStream stream = System.IO.File.Open(path, FileMode.Open))
+            {
+              media.SetValue(_contentTypeBaseServiceProvider, "umbracoFile", solicitorName, stream);
+            }
+            _mediaService.Save(media);
+          }
+
+          catch (Exception ex)
+          {
+            var bp = ex;
+          }
         }
 
-        if (rf.Alias == "name")
+        if (rf.Alias == "summary")
         {
-          customerName = rf.ValuesAsString();
+          summary = rf.ValuesAsString();
         }
 
-        if (rf.Alias == "comment")
+        if (rf.Alias == "about")
         {
-          comment = rf.ValuesAsString();
+          about = rf.ValuesAsString();
+        }
+
+        if (rf.Alias == "services")
+        {
+          foreach (var val in rf.Values)
+          {
+            services.Add(val.ToString());
+          }
+        }
+
+        if (rf.Alias == "openingHours")
+        {
+          openingHours = rf.ValuesAsString();
+        }
+
+        if (rf.Alias == "addressLine1")
+        {
+          addressLineOne = rf.ValuesAsString();
+        }
+
+        if (rf.Alias == "postcode")
+        {
+          postcode = rf.ValuesAsString();
+        }
+
+        if (rf.Alias == "city")
+        {
+          city = rf.ValuesAsString();
+        }
+
+        if (rf.Alias == "medicalAttention")
+        {
+          medicalAttention = rf.ValuesAsString().ToLower() == "yes";
+        }
+
+        if (rf.Alias == "minors")
+        {
+          minors = rf.ValuesAsString().ToLower() == "yes";
+        }
+
+        if (rf.Alias == "obscureLocation")
+        {
+          obscureLocation = rf.ValuesAsString().ToLower() == "yes";
+        }
+
+        if (rf.Alias == "maximumMonthsSinceIncident")
+        {
+          if(!Int32.TryParse(rf.ValuesAsString(), out maximumMonths))
+          {
+            maximumMonths = 18;
+          }
         }
       }
 
-      var solicitorNode = _contentService.GetById(Int32.Parse(solicitor));
-
-      //has to be a <string> as we wish to get the JSON value and not the IPublishedElement
-      var property = solicitorNode.GetValue<string>("listOfReviews");
-
-      //Create the list as a fallback.
-      List<Dictionary<string, object>> reviews = new List<Dictionary<string, object>>();
-
-      //if property is null and deserialize is attempted the workflow will return success but wont actually complete the workflow.
-      if (property != null)
-      {
-        //if property is not null we can overwrite the fallback list.
-        reviews = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(property);
-      }
+      //var solicitorNode = _contentService.CreateAndSave(solicitorName, 1189, "solicitor");
+      var node = _contentService.GetByLevel(2);
 
       // Each entry requires a unique GUID, generate here.
       var key = Guid.NewGuid().ToString();
 
-      //Adds a new entry to the nested content, name always set to 'Daniel Mckibbin' due to same name as original Admin account.
-      reviews.Add(new Dictionary<string, object>() {
-        {
-          "key",
-          key
-        },
-        {
-          "name",
-          "Daniel Mckibbin"
-        },
-        {
-          "ncContentTypeAlias",
-          "review"
-        },
-        {
-          "customerName",
-          customerName
-        },
-        {
-          "rating",
-          starRating
-        },
-        {
-          "date",
-          date.ToString("DD-MM-YYYY")
-        },
-        {
-          "comment",
-          comment
-        }
-      });
-
-      var ratings = new List<int>();
-
-      //add the current starRating as it will not be in the node when you getValue.
-      ratings.Add(starRating);
-      foreach (var entry in reviews)
-      {
-        ratings.Add(Int32.Parse(entry["rating"].ToString()));
-      }
-
-      var avgRating = ratings.Average();
-
-      solicitorNode.SetValue("listOfReviews", JsonConvert.SerializeObject(reviews));
-      solicitorNode.SetValue("rating", avgRating);
-      _contentService.SaveAndPublish(solicitorNode);
+      //_contentService.SaveAndPublish(solicitorNode);
 
       return WorkflowExecutionStatus.Completed;
     }

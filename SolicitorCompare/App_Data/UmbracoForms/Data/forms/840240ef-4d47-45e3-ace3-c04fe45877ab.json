@@ -310,7 +310,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -338,7 +340,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -366,7 +370,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -424,7 +430,8 @@
                   },
                   "settings": {
                     "Theme": "light",
-                    "Size": "normal"
+                    "Size": "normal",
+                    "ErrorMessage": ""
                   },
                   "preValues": []
                 }
@@ -456,7 +463,7 @@
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
   "workflows": [
-    "53a000a2-c104-4baa-a2b0-165561119db5"
+    "02049d8a-b198-4fbf-9f21-3f96de193c28"
   ],
   "datasource": null,
   "submitLabel": "Submit",
