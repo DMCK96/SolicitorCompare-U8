@@ -98,7 +98,7 @@ namespace SolicitorCompare.UmbracoForms.Workflow
         },
         {
           "date",
-          date.ToString("DD-MM-YYYY")
+          date
         },
         {
           "comment",
@@ -119,7 +119,15 @@ namespace SolicitorCompare.UmbracoForms.Workflow
 
       solicitorNode.SetValue("listOfReviews", JsonConvert.SerializeObject(reviews));
       solicitorNode.SetValue("rating", avgRating);
-      _contentService.SaveAndPublish(solicitorNode);
+
+      try
+      {
+        _contentService.SaveAndPublish(solicitorNode);
+      }
+      catch (Exception ex)
+      {
+        var bp = true;
+      }
 
       return WorkflowExecutionStatus.Completed;
     }

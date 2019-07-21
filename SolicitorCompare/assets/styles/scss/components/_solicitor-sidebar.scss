@@ -1,8 +1,15 @@
 @include component(solicitor-sidebar) {
-  width: 20%;
-  height: 100%;
-  display: inline-block;
+  width: 100%;
+  display: block;
   vertical-align: top;
+  margin-bottom: 25px;
+
+  @include bp($landscapetablet) {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    margin-bottom: 0;
+  }
 
   @include part(services) {
     margin-bottom: 30px;

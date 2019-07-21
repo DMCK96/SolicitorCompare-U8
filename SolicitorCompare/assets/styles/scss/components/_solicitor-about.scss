@@ -1,28 +1,43 @@
 @include component(solicitor-about) {
-  width: 75%;
-  margin-right: 4%;
-  display: inline-block;
+  width: 100%;
+  display: block;
   padding-bottom: 50px;
+
+  @include bp($landscapetablet) {
+    width: 75%;
+    margin-right: 4%;
+    display: inline-block;
+  }
 
   @include part(heading) {
     margin-bottom: 30px;
   }
 
   @include part(logo) {
-    display: inline-block;
-    width: 35%;
-    margin-right: 4%;
+    width: 100%;
+    display: block;
     margin-bottom: 20px;
+
+    @include bp($landscapetablet){
+      display: inline-block;
+      width: 35%;
+      margin-right: 4%;
+    }
   }
 
   @include part(short-text) {
     margin-bottom: 20px;
     font-size: 1.4rem;
-    display: inline-block;
-    width: 60%;
+    width: 100%;
+    display: block;
     vertical-align: top;
     box-sizing: border-box;
     padding-top: 10px;
+
+    @include bp($landscapetablet) {
+      display: inline-block;
+      width: 60%;
+    }
 
     @include part(claim) {
       padding: 15px 0;
