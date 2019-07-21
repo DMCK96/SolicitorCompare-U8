@@ -1,22 +1,13 @@
 @include component(slider) {
   width: 100%;
-  min-height: 450px;
   position: relative;
-  background: url(http://solicitor-compare.co.uk/img/imagebg.jpg);
-  background-position: center center;
 
-  @include part(overlay) {
-    background: rgba($black, 0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+  @include bp($landscapetablet) {
+    min-height: 450px;
   }
 
   @include part(button) {
+    display: none;
     z-index: 5;
     position: absolute;
     width: 80px;
@@ -30,6 +21,10 @@
     color: $white;
     cursor: pointer;
 
+    @include bp($landscapetablet) {
+      display: block;
+    }
+
     @include option(left) {
       left: 0;
     }
@@ -37,23 +32,28 @@
     @include option(right) {
       right: 0;
     }
-
-    @include part(icon) {
-
-    }
   }
 
   @include part(content) {
     padding: 10% 0;
-    width: 70%;
+
     position: relative;
     z-index: 2;
     box-sizing: border-box;
 
+    @include bp($landscapetablet) {
+      width: 70%;
+    }
+
     @include part(heading) {
       color: $white;
-      font-size: 3rem;
+      font-size: 2rem;
       margin-bottom: 30px;
+
+      @include bp($landscapetablet) {
+        font-size: 3rem;
+        margin-bottom: 30px;
+      }
 
       .text-emphasis {
         color: $palette_a;
@@ -62,8 +62,13 @@
 
     @include part(sub-text) {
       color: $white;
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding-bottom: 30px;
+
+      @include bp($landscapetablet) {
+        font-size: 1.2rem;
+        padding-bottom: 30px;
+      }
     }
   }
 }
@@ -71,4 +76,17 @@
 
 .glide__slide {
   height: unset !important;
+  background-position: center center;
+  background-size: cover;
+
+  &:after {
+    background-color: $black;
+    position: absolute;
+    content:"";
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0.2;
+  }
 }

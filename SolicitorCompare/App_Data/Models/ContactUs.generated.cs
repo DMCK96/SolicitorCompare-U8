@@ -46,6 +46,20 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Form: Select the contact form you'd like to display on the page
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("form")]
+		public object Form => this.Value("form");
+
+		///<summary>
+		/// Text: Text that appears above the contact form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("text")]
+		public IHtmlString Text => this.Value<IHtmlString>("text");
+
+		///<summary>
 		/// Disable Link: Tick this if you wish for this page to be a category in navigation but not be clickable
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]

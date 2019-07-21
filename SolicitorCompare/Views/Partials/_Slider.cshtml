@@ -10,7 +10,7 @@
         <ul class="glide__slides">
             @foreach (var slide in Model)
             {
-                <li class="glide__slide">
+              <li class="glide__slide" style="background-image:url('@slide.BackgroundImage.Url');">
                     <div class="slider">
                         <div class="slider__overlay"></div>
                         <div class="container">

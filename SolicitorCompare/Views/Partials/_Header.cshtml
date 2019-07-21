@@ -1,14 +1,21 @@
 <header class="header">
-    <div class="header__container container">
-        <div class="header__logo-container">
-            <a href="/" class="header__logo">
-                <img alt="Solicitor-Compare Logo" class="header__logo__img" src="~/assets/img/Logo.png">
-            </a>
-        </div>
+    <div class="header__container container --mobile-ignore">
+      <div class="header__logo-container">
+        <a href="/" class="header__logo">
+          <img alt="Solicitor-Compare Logo" class="header__logo__img" src="~/assets/img/Logo.png">
+        </a>
+      </div>
+      <button class="mobile-navigation__toggle hamburger hamburger--collapse" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
         <div class="header__navigation-wrapper">
-            <div class="header__navigation">
-                @Html.Partial("_Navigation")
-            </div>
+          <div class="header__navigation">
+            @Html.Partial("_Navigation")
+          </div>
         </div>
     </div>
 </header>
+
+@Html.Partial("_MobileNavigation")

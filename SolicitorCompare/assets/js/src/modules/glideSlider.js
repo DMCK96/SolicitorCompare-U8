@@ -7,6 +7,10 @@ export default function initSlider() {
         return;
     }
 
-    new Glide(slider).mount();
+    const glide = new Glide(slider, {
+      dragThreshold: false
+    });
+
+    glide.mount();
 }
 

@@ -1,6 +1,5 @@
 @include component(navigation) {
   display: none;
-  margin-bottom: 20px;
 
   @include bp($landscapetablet) {
     display: block !important;
@@ -121,7 +120,6 @@
         background: none;
         text-align: left;
         border-bottom: 1px dotted $white;
-        font-family: 'Oxygen', sans-serif;
         font-size: .8rem;
         box-sizing: border-box;
 

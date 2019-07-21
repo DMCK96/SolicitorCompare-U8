@@ -34,6 +34,14 @@
         {
             <p class="how-does-it-work__sub-text">@subText</p>
         }
+
+        @if (!youtubeVideoId.IsNullOrWhiteSpace())
+        {
+          var src = "https://www.youtube.com/embed/" + youtubeVideoId +
+          "?" + "autoplay=0";
+
+          <div class='how-does-it-work__video'><iframe src='@src' frameborder='0' allowfullscreen></iframe></div>
+        }
     </div>
 
     <div class="home-concept appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="500">
@@ -95,7 +103,7 @@
                                 <circle class="line appear-animation" fill="#FFF" stroke="#6f6f6f" stroke-width="0.25" stroke-miterlimit="0" stroke-dasharray="0" data-appear-animation="animated-line" data-appear-animation-delay="2250" cx="42.5" cy="42.5" r="42.063"/>
                                 <circle fill="none" stroke="#FFF" stroke-width="0.50" stroke-miterlimit="10" stroke-dasharray="1,2.5" cx="42.5" cy="42.5" r="42.063"/>
                             </svg>
-                            <img src="@stepImage4" alt="" class="appear-animation" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="2400"/>
+                            <img src="@stepImage4" alt="" class="appear-animation how-does-it-work__step__project-image" data-appear-animation="zoomIn" data-appear-animation-duration="300" data-appear-animation-delay="2400"/>
                         </div>
                         <strong class="Our-Work appear-animation how-does-it-work__step__heading" data-appear-animation="fadeInDown" data-appear-animation-delay="3150" data-plugin-options="{'accY': 300}">@stepHeading4</strong><span class="appear-animation how-does-it-work__step__sub-text" data-appear-animation="fadeInDown" data-appear-animation-delay="3150" data-plugin-options="{'accY': 300}">@stepSubText4</span>
                     </div>

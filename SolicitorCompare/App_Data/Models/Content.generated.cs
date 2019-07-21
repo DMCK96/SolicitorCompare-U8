@@ -22,7 +22,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Content</summary>
 	[PublishedModel("content")]
-	public partial class Content : PublishedContentModel, INavigation, ISEO
+	public partial class Content : PublishedContentModel, INavigation, ISEO, ISidebar
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -93,5 +93,19 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		[ImplementPropertyType("metaDescription")]
 		public string MetaDescription => SEO.GetMetaDescription(this);
+
+		///<summary>
+		/// Sidebar Heading
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sidebarHeading")]
+		public string SidebarHeading => Sidebar.GetSidebarHeading(this);
+
+		///<summary>
+		/// Sidebar Items
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
+		[ImplementPropertyType("sidebarItems")]
+		public IEnumerable<SidebarLink> SidebarItems => Sidebar.GetSidebarItems(this);
 	}
 }

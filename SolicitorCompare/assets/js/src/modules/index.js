@@ -1,5 +1,6 @@
 import initSlider from './glideSlider';
 import initCloud from './cloud';
+import initMobileNavigation from './mobileNavigation';
 
 const pageFunctions = {
     common: {
@@ -7,6 +8,7 @@ const pageFunctions = {
             console.log('init');
             initSlider();
             initCloud();
+            initMobileNavigation();
         },
 
         finalize() {

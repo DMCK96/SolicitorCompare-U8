@@ -1,0 +1,101 @@
+@include component(mobile-navigation) {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 0;
+  height: 100%;
+  z-index: 900;
+  background: darken($white, 2);
+  overflow-y: auto;
+  transition: all ease 0.2s;
+
+  @include option(show) {
+    width: 100%;
+    transition: all ease 0.2s;
+  }
+
+  @include part(toggle) {
+    float: right;
+    width: 80px;
+    display: inline-block;
+
+    @include bp($landscapetablet) {
+      display: none;
+    }
+  }
+
+  @include part(item) {
+    position: relative;
+    font-size: 1.2rem;
+
+    @include option(submenu) {
+      padding: 10px 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid darken($white, 15);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @include part(toggle) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 60px;
+      width: 60px;
+      display: inline-block;
+      background-color: $palette_c;
+      content: '';
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: $palette_b;
+        font-weight: bold;
+        font-size: 1.5rem;
+        content: '\f054';
+        font-family: FontAwesome;
+        transition: all ease 0.2s;
+      }
+
+      @include option(open) {
+
+        &:after {
+          transition: all ease 0.2s;
+          transform: translateX(-50%) translateY(-50%) rotate(90deg);
+        }
+      }
+    }
+
+    @include part(link) {
+      line-height: 60px;
+      padding-left: 40px;
+      height: 60px;
+      width: calc(100% - 60px);
+      display: inline-block;
+
+      @include option(submenu) {
+        width: 100%;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    @include part(submenu) {
+      padding-left: 10px;
+      background: darken($white, 5);
+      display: none;
+      transition: all ease 0.3s;
+
+      @include option(open) {
+        display: block;
+        transition: all ease 0.3s;
+      }
+    }
+  }
+}

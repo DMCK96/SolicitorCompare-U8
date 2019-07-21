@@ -1,5 +1,28 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ContactUs>
-@using ContentModels = Umbraco.Web.PublishedModels;
+﻿@using ContentModels = Umbraco.Web.PublishedModels;
+@inherits UmbracoViewPage<Umbraco.Web.PublishedModels.ContactUs>
 @{
-	Layout = null;
+  Layout = "master.cshtml";
+  var form = Model.Form.ToString();
+  var formHtml = Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid = form, ExcludeScripts = "0"}).ToHtmlString().Replace("<br />", "");
 }
+
+@Html.Partial("Partials/_PageHeading")
+
+<div class="container">
+  <div class="contact-us">
+
+    <div class="contact-us__content">
+      <div class="contact-us__content__text rich-text-editor">
+        @Html.Raw(Model.Text)
+      </div>
+
+      <div class="contact-us__content__form form-page">
+        @Html.Raw(formHtml)
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>

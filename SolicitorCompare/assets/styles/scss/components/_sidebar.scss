@@ -1,0 +1,39 @@
+@include component(sidebar) {
+  width: 24%;
+  margin-right: 5%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  vertical-align: top;
+
+  @include part(heading) {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  @include part(items) {
+
+    @include part(item) {
+      padding: 5px 0;
+      border-bottom: 1px solid darken($palette_c, 5);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      @include part(link) {
+        font-size: 1.1rem;
+        transition: all ease 0.2s;
+        padding-left: 15px;
+
+        &:hover {
+          font-weight: 700;
+          text-decoration: none;
+          transition: all ease 0.2s;
+          border-left: 4px solid $palette_a;
+        }
+      }
+    }
+  }
+}

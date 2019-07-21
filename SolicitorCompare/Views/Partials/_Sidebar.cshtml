@@ -1,0 +1,25 @@
+@model Umbraco.Web.PublishedModels.Content
+
+<div class="sidebar">
+  <div class="sidebar__heading">@Model.SidebarHeading</div>
+  <div class="sidebar__items">
+    @foreach (var link in Model.SidebarItems)
+    {
+      var anchor = link.Anchor ?? "";
+      var url = "";
+
+      if (anchor.IsNullOrWhiteSpace())
+      {
+        url = link.Page.Url;
+      }
+      else
+      {
+        url = "#" + anchor;
+      }
+      <div class="sidebar__items__item">
+        <a href="@url" class="sidebar__items__item__link">@link.Label</a>
+      </div>
+
+    }
+  </div>
+</div>

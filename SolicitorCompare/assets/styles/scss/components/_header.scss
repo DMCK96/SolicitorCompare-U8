@@ -19,8 +19,12 @@
   @include part(logo-container) {
     display: inline-block;
     height: 50px;
-    width: 350px;
+    width: calc(100% - 100px);
     position: relative;
+
+    @include bp($landscapetablet) {
+      width: 350px;
+    }
   }
 
   @include part(logo) {
@@ -34,11 +38,15 @@
   }
 
   @include part(navigation-wrapper) {
-    display: inline-block;
-    position: relative;
-    float: right;
-    height: 50px;
-    width: 50%;
+    display: none;
+
+    @include bp($landscapetablet) {
+      display: inline-block;
+      position: relative;
+      float: right;
+      height: 50px;
+      width: 50%;
+    }
   }
 
   @include part(navigation) {

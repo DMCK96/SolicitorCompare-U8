@@ -6,9 +6,7 @@
 @Html.Partial("_PageHeading")
 
 <div class="container">
-    <div class="categories">
-        <h3>Categories</h3>
-    </div>
+    @Html.Partial("_Sidebar", Model)
     <div class="content">
         @Html.Partial("_NestedContent")
     </div>

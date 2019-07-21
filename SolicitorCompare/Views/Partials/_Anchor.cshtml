@@ -1,0 +1,6 @@
+@model IPublishedElement
+@{
+  var anchor = Model.Value<string>("anchorID") ?? "";
+}
+
+<div class="anchor" id="@anchor"></div>
