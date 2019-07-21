@@ -1,6 +1,11 @@
 @include component(content) {
-  width: 70%;
-  display: inline-block;
+  width: 100%;
+  display: block;
   box-sizing: border-box;
   position: relative;
+
+  @include bp($landscapetablet) {
+    width: 70%;
+    display: inline-block;
+  }
 }

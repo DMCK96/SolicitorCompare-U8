@@ -69,11 +69,15 @@
 
     @include part(copyright) {
       color: lighten($palette_b, 20);
-      display: inline-block;
+      display: none;
       height: auto;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+
+      @include bp($tablet) {
+        display: inline-block;
+      }
     }
   }
 }

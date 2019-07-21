@@ -19,9 +19,13 @@
     border-radius: 8px;
     border-top: 1px solid $palette_a;
     border-top-width: 4px;
-    padding: 50px 30px;
+    padding: 20px 10px;
     position: relative;
     top: -1px;
+
+    @include bp($tablet) {
+      padding: 50px 30px;
+    }
   }
 
   @include part(heading) {
