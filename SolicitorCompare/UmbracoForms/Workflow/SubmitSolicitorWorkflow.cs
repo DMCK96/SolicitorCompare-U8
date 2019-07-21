@@ -50,6 +50,9 @@ namespace SolicitorCompare.UmbracoForms.Workflow
       bool minors = false;
       bool obscureLocation = false;
       int maximumMonths = 18;
+      bool passengersAndFault = false;
+      bool damage = false;
+      bool compensation = false;
 
       //Iterate through the fields and assign variables based on alias.
       foreach (RecordField rf in record.RecordFields.Values)
@@ -124,6 +127,16 @@ namespace SolicitorCompare.UmbracoForms.Workflow
             maximumMonths = 18;
           }
         }
+
+        if (rf.Alias == "damage")
+        {
+          damage = rf.ValuesAsString().ToLower() == "yes";
+        }
+
+        if (rf.Alias == "compensation")
+        {
+          compensation = rf.ValuesAsString().ToLower() == "yes";
+        }
       }
 
       var solicitorNode = _contentService.CreateAndSave(solicitorName, 1365, "solicitor");
@@ -159,6 +172,9 @@ namespace SolicitorCompare.UmbracoForms.Workflow
       solicitorNode.SetValue("minors", minors);
       solicitorNode.SetValue("obscureLocation", obscureLocation);
       solicitorNode.SetValue("maximumTime", maximumMonths);
+      solicitorNode.SetValue("passengersAndAtFault", passengersAndFault);
+      solicitorNode.SetValue("damage", damage);
+      solicitorNode.SetValue("compensation", compensation);
 
       _contentService.Save(solicitorNode);
 

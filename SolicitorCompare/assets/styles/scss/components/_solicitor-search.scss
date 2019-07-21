@@ -1,0 +1,59 @@
+@include component(solicitor-search) {
+  margin-bottom: 50px;
+
+  @include part(status) {
+    padding: 20px 10px;
+    margin-bottom: 25px;
+    background-color: $success_background;
+    color: $success_text;
+    border-radius: 10px;
+    border: 1px solid darken($success_background, 10);
+
+    strong {
+      font-weight: bold;
+    }
+
+    @include option(failed) {
+      background-color: $error_background;
+      color: $error_text;
+      border: 1px solid darken($error_background, 10);
+    }
+  }
+
+  @include part(result) {
+    width: 100%;
+    height: 250px;
+    display: block;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.35);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include part(logo) {
+      display: inline-block;
+      background-size: cover;
+      background-position: center;
+      width: 250px;
+      height: 250px;
+    }
+
+    @include part(info) {
+      padding: 20px;
+      display: inline-block;
+      width: calc(80% - 300px);
+      vertical-align: top;
+    }
+
+    @include part(name) {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    @include part(summary) {
+      margin-bottom: 20px;
+    }
+  }
+}

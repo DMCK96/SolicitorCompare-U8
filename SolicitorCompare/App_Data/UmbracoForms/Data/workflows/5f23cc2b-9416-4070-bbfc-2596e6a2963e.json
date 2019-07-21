@@ -1,0 +1,10 @@
+{
+  "id": "5f23cc2b-9416-4070-bbfc-2596e6a2963e",
+  "name": "Search",
+  "form": "7b68b55a-a47c-4247-a755-6b74ee09104f",
+  "active": true,
+  "workflowTypeId": "2b9064d0-f8b4-441a-af80-8652cbb842e0",
+  "executesOn": "Submitted",
+  "settings": {},
+  "sortOrder": 0
+}

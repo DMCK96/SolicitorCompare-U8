@@ -289,6 +289,34 @@
               "width": 12,
               "fields": [
                 {
+                  "caption": "Maximum months since incident?",
+                  "tooltip": "Maximum amount of time in months since time of accident that you will accept the claim. If this is not provided it will default to 18 months.",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "maximumMonthsSinceIncident",
+                  "id": "400fa8c1-1e78-42f6-a445-d1e23ffcb297",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": false,
+                  "regex": "^[0-9]*$",
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": "Please enter a numeric value only",
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
+                  "preValues": []
+                },
+                {
                   "caption": "Medical Attention?",
                   "tooltip": "Will you accept claims where medical attention has not been sought?",
                   "placeholder": null,
@@ -379,20 +407,20 @@
                   ]
                 },
                 {
-                  "caption": "Maximum months since incident?",
-                  "tooltip": "Maximum amount of time in months since time of accident that you will accept the claim. If this is not provided it will default to 18 months.",
+                  "caption": "Passengers and at Fault",
+                  "tooltip": "Will you accept claims that have passengers but the driver was at fault.",
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "maximumMonthsSinceIncident",
-                  "id": "400fa8c1-1e78-42f6-a445-d1e23ffcb297",
-                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "alias": "passengersAndAtFault",
+                  "id": "384edc17-1910-49bb-cacb-c4f7f38acfe0",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
-                  "mandatory": false,
-                  "regex": "^[0-9]*$",
+                  "mandatory": true,
+                  "regex": null,
                   "requiredErrorMessage": null,
-                  "invalidErrorMessage": "Please enter a numeric value only",
+                  "invalidErrorMessage": null,
                   "condition": {
                     "id": "00000000-0000-0000-0000-000000000000",
                     "enabled": false,
@@ -401,10 +429,72 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": "",
-                    "Placeholder": ""
+                    "DefaultValue": ""
                   },
-                  "preValues": []
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Damage",
+                  "tooltip": "Will you accept claims in which damage to the vehicle is less than £500?",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "damage",
+                  "id": "8600f5b8-a4dc-4db4-c5ef-16ac7f8630cb",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                {
+                  "caption": "Compensation",
+                  "tooltip": "Will you accept claims when compensation has already been received?",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "compensation",
+                  "id": "a9e265dd-ffd0-489f-f6fa-ab98a0e98d64",
+                  "fieldTypeId": "903df9b0-a78c-11de-9fc1-db7a56d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": [
+                    "Yes",
+                    "No"
+                  ]
                 },
                 {
                   "caption": "Recaptcha",

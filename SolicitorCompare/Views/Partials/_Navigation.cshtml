@@ -16,7 +16,7 @@
                         @if (child.Children.Any() && child.Children.Count() < 10 && child.Value<bool>("hideSubmenu") == false)
                         {
                             <ul class="navigation__item__submenu">
-                                @foreach (var subChild in child.Children)
+                                @foreach (var subChild in child.Children.Where(x => x.Value<bool>("hideInNavigation") == false))
                                 {
                                     <li class="navigation__item --submenu">
                                         <a href="@subChild.Url" class="navigation__link --submenu">@subChild.Name</a>

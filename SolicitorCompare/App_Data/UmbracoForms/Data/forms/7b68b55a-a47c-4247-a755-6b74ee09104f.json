@@ -61,7 +61,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "Not Sure",
@@ -90,7 +92,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -118,7 +122,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "Not Sure",
@@ -147,7 +153,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -175,7 +183,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -203,7 +213,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -231,12 +243,41 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "Not Sure",
                     "No"
                   ]
+                },
+                {
+                  "caption": "Search Url",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "searchUrl",
+                  "id": "81978928-b412-4019-d1c3-5f72e4dfca5f",
+                  "fieldTypeId": "da206cae-1c52-434e-b21a-4a7c198af877",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": "[%searchUrl]"
+                  },
+                  "preValues": []
                 }
               ]
             }
@@ -266,7 +307,7 @@
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
   "workflows": [
-    "1f85e471-1785-4d1a-9d02-adf6c4856f6c"
+    "5f23cc2b-9416-4070-bbfc-2596e6a2963e"
   ],
   "datasource": null,
   "submitLabel": "Submit",

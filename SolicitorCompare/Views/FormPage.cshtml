@@ -1,9 +1,22 @@
+@using RestSharp
 @using ContentModels = Umbraco.Web.PublishedModels;
 @inherits UmbracoViewPage<Umbraco.Web.PublishedModels.FormPage>
 @{
   Layout = "master.cshtml";
   var form = Model.Form.ToString();
   var formHtml = Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid = form, ExcludeScripts = "0"}).ToHtmlString().Replace("<br />", "");
+
+  var solicitorSearchUrl = Umbraco.Content(1379);
+  if (solicitorSearchUrl != null)
+  {
+    Session["searchUrl"] = HttpContext.Current.Request.Url.Authority + solicitorSearchUrl.Url;
+  }
+
+  var selectedSolicitor = "";
+  if (Request.QueryString != null)
+  {
+    Session["solicitor"] = HttpUtility.UrlDecode(Request.QueryString.Get("solicitor"));
+  }
 }
 @Html.Partial("_PageHeading")
 

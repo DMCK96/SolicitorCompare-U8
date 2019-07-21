@@ -538,7 +538,7 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Blog.cshtml" />
     <Content Include="Views\Blogpost.cshtml" />
-    <Content Include="Views\contact.cshtml" />
+    <Content Include="Views\ContactUs.cshtml" />
     <Content Include="Views\Content.cshtml" />
     <Content Include="Views\FormPage.cshtml" />
     <Content Include="Views\home.cshtml" />
@@ -618,15 +618,20 @@
     <Content Include="Views\Partials\_WhatWeDo.cshtml" />
     <Content Include="Views\Solicitor.cshtml" />
     <Content Include="Views\SolicitorListing.cshtml" />
+    <Content Include="Views\SolicitorSearch.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SolicitorSearchController.cs" />
     <Compile Include="Controllers\TwitterController.cs" />
+    <Compile Include="Helpers\SolicitorSearchHelper.cs" />
     <Compile Include="Helpers\XPath.cs" />
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\TweetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UmbracoForms\FieldType\StarRating.cs" />
     <Compile Include="UmbracoForms\Workflow\ReviewWorkflow.cs" />
+    <Compile Include="UmbracoForms\Workflow\SearchSolicitorWorkflow.cs" />
     <Compile Include="UmbracoForms\Workflow\SubmitSolicitorWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>

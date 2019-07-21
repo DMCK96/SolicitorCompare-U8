@@ -20,37 +20,30 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Content</summary>
-	[PublishedModel("content")]
-	public partial class Content : PublishedContentModel, INavigation, ISEO
+	/// <summary>Solicitor Search</summary>
+	[PublishedModel("solicitorSearch")]
+	public partial class SolicitorSearch : PublishedContentModel, INavigation, ISEO
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public new const string ModelTypeAlias = "content";
+		public new const string ModelTypeAlias = "solicitorSearch";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Content, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SolicitorSearch, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Content(IPublishedContent content)
+		public SolicitorSearch(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
-
-		///<summary>
-		/// Components
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.1.0")]
-		[ImplementPropertyType("components")]
-		public IEnumerable<IPublishedElement> Components => this.Value<IEnumerable<IPublishedElement>>("components");
 
 		///<summary>
 		/// Disable Link: Tick this if you wish for this page to be a category in navigation but not be clickable

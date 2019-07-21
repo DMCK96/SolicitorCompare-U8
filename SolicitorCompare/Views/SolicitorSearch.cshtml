@@ -1,0 +1,101 @@
+﻿@using SolicitorCompare.Helpers
+@using SolicitorCompare.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.Models.ContentModel>
+
+@{
+  Layout = "master.cshtml";
+  var query = Request.QueryString;
+
+  var results = new List<IPublishedContent>();
+
+  if (query.Count > 0)
+  {
+    var searchModel = new SearchModel(Model.Content);
+
+    var qDateOfAcident = HttpUtility.UrlDecode(Request.QueryString.Get("dateOfAccident"));
+    qDateOfAcident = qDateOfAcident.Replace(@"\", "");
+
+    searchModel.AccidentDate = DateTime.Parse(qDateOfAcident);
+    searchModel.Fault = HttpUtility.UrlDecode(Request.QueryString.Get("fault"));
+    searchModel.Passengers = HttpUtility.UrlDecode(Request.QueryString.Get("passengers")).ToLower() == "yes";
+    searchModel.Damage = HttpUtility.UrlDecode(Request.QueryString.Get("damage"));
+    searchModel.Minors = HttpUtility.UrlDecode(Request.QueryString.Get("minors")).ToLower() == "yes";
+    searchModel.Hospital = HttpUtility.UrlDecode(Request.QueryString.Get("visitHospital")).ToLower() == "yes";
+    searchModel.Obscure = HttpUtility.UrlDecode(Request.QueryString.Get("obscureLocation")).ToLower() == "yes";
+    searchModel.Compensation = HttpUtility.UrlDecode(Request.QueryString.Get("receivedCompensation"));
+
+
+    var searchHelper = new SolicitorSearchHelper();
+    results = searchHelper.GetSolicitorResults(searchModel);
+  }
+}
+@Html.Partial("_PageHeading")
+
+<div class="container">
+  <div class="solicitor-search">
+    @if (results.Count > 0)
+      {
+        <div class="solicitor-search__status">
+          <strong>Congratulations!</strong> We successfully found the following solicitors who would be willing to take your case.
+        </div>
+      }
+    else
+    {
+      var searchNode = Umbraco.ContentSingleAtXPath(XPath.RTASearch);
+      var searchUrl = "";
+      if (searchNode != null)
+      {
+        searchUrl = searchNode.Url;
+      }
+      else
+      {
+        searchNode = Umbraco.Content(1325);
+        searchUrl = searchNode.Url;
+      }
+
+      var contactNode = Umbraco.ContentSingleAtXPath(XPath.ContactUs);
+      var contactUrl = "";
+
+      if (contactNode != null)
+      {
+        contactUrl = contactNode.Url;
+      }
+      else
+      {
+        contactNode = Umbraco.Content(1386);
+        contactUrl = contactNode.Url;
+      }
+
+      <div class="solicitor-search__status --failed">
+        Unfortunately we could not find any solicitors who would be willing to take your case. If you would like more assistance please <a href="@contactUrl" class="solicitor-search__status__link">contact us</a>.
+      </div>
+
+      <a href="@searchUrl" class="solicitor-search__try-again button --secondary --dark">Try again</a>
+    }
+
+    @foreach (var solicitor in results)
+    {
+      var logo = solicitor.Value<Image>("logo");
+      var logoUrl = "";
+      if (logo != null)
+      {
+        logoUrl = logo.Url;
+      }
+      var summary = solicitor.Value<string>("summary");
+
+      <div class="solicitor-search__result">
+        <div class="solicitor-search__result__logo" style="background-image:url('@logoUrl');">
+        </div>
+        <div class="solicitor-search__result__info">
+          <div class="solicitor-search__result__name">
+            @solicitor.Name
+          </div>
+          <div class="solicitor-search__result__summary">
+            @summary
+          </div>
+          <a href="@solicitor.Url" class="solicitor-search__result__view-button button --secondary --dark">View Solicitor</a>
+        </div>
+      </div>
+    }
+  </div>
+</div>

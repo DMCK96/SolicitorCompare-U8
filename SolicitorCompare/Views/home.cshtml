@@ -3,8 +3,7 @@
 @{
     Layout = "master.cshtml";
     var slider = Model.HeroBanner;
-    var topSolicitors = Model.TopSolicitors;
-    var callToAction = Model.CallToAction.FirstOrDefault();
+  var callToAction = Model.CallToAction.FirstOrDefault();
 }
 
 @Html.Partial("_Slider", slider)
@@ -13,6 +12,6 @@
 
 <div class="container">
     @Html.Partial("_NestedContent")
-    @Html.Partial("_TopSolicitors", topSolicitors)
+    @Html.Partial("_TopSolicitors")
 </div>
 

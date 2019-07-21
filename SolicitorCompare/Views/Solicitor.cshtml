@@ -6,7 +6,31 @@
   Session["solicitor"] = Model.Id;
   var siteSettings = Umbraco.ContentSingleAtXPath(XPath.SiteSettingsNode);
   var form = siteSettings.Value<string>("reviewForm");
+
+  decimal rating = 0.00M;
+  decimal output;
+  if (decimal.TryParse(Model.Rating, out output))
+  {
+    rating = output;
+  }
 }
+@if (rating != 0.00M)
+{
+  var ratingCount = Model.ListOfReviews.Count();
+  var ratingString = rating.ToString("0.##");
+  <script type="application/ld+json">
+{
+  "@@context": "http://schema.org",
+  "@@type": "LocalBusiness",
+  "aggregateRating": {
+    "@@type": "AggregateRating",
+    "ratingValue": "@ratingString",
+    "ratingCount": "@ratingCount"
+  }
+}
+</script>
+}
+
 
 @Html.Partial("_PageHeading")
 

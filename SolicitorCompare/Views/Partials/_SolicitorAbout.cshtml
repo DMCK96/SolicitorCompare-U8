@@ -1,7 +1,16 @@
+@using SolicitorCompare.Helpers
+@using Umbraco.Core.Composing.CompositionExtensions
 @model Umbraco.Web.PublishedModels.Solicitor
 
 @{
-
+  var helper = Umbraco.Web.Composing.Current.UmbracoHelper;
+  var claimForm = helper.ContentSingleAtXPath(XPath.RTAClaim);
+  if (claimForm == null)
+  {
+    claimForm = helper.Content(1337);
+  }
+  var query = "?solicitor=" + HttpUtility.UrlEncode(Model.Name);
+  var url = claimForm.Url + query;
 }
 <div class="solicitor-about__heading__container">
     <h2 class="solicitor-about__heading">About Us</h2>
@@ -11,7 +20,7 @@
     <div class="solicitor-about__short-text">
         @Model.Summary
         <div class="solicitor-about__short-text__claim ">
-            <a href="#" class="solicitor-about__short-text__claim__button button --secondary --dark">Claim Now</a>
+            <a href="@url" class="solicitor-about__short-text__claim__button button --secondary --dark">Claim Now</a>
         </div>
 
     </div>
