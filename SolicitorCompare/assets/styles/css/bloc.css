@@ -468,6 +468,9 @@ video {
   object-fit: cover;
   font-family: 'object-fit: cover;'; }
 
+html {
+  scroll-behavior: smooth; }
+
 /*************************************************|
 | Put your fonts in here                          |
 *************************************************/
@@ -646,7 +649,10 @@ h6 {
 | styles                                          |
 *************************************************/
 .anchor {
-  display: none; }
+  margin: 0;
+  width: 0;
+  height: 0;
+  padding: 0; }
 
 .block-text {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #fff), color-stop(98%, #fcfcfc)) repeat scroll 0 0 transparent;
@@ -2135,7 +2141,7 @@ body {
       margin-bottom: 0; }
     .solicitor-search__result__logo {
       display: inline-block;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       width: 250px;
       height: 250px; }

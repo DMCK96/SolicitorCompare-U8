@@ -1,6 +1,7 @@
 import initSlider from './glideSlider';
 import initCloud from './cloud';
 import initMobileNavigation from './mobileNavigation';
+import initScrollTo from './anchorLinks';
 
 const pageFunctions = {
     common: {
@@ -9,6 +10,7 @@ const pageFunctions = {
             initSlider();
             initCloud();
             initMobileNavigation();
+            initScrollTo();
         },
 
         finalize() {

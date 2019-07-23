@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
+using RestSharp;
+using Serilog.Core;
+using Serilog.Debugging;
+using Serilog.Events;
 using Umbraco.Core;
 using Umbraco.Core.Services;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Persistence.Dtos;
+using Umbraco.Core.Logging;
 
 namespace SolicitorCompare.UmbracoForms.Workflow
 {
@@ -55,14 +60,22 @@ namespace SolicitorCompare.UmbracoForms.Workflow
         {
           query = query.Replace(@"\/", "-");
           searchUrl = searchUrl.Replace(@"\", "");
-          searchUrl = searchUrl + "?" + query;
+
+          var https = HttpContext.Current.Request.IsSecureConnection;
+          var protocol = https ? "https://" : "http://";
+
+          searchUrl = protocol + searchUrl + "?" + query;
+          Logger.None.Write(LogEventLevel.Error ,searchUrl);
           HttpContext.Current.Response.Redirect(searchUrl);
+        }
+        else
+        {
+          return WorkflowExecutionStatus.Failed;
         }
       }
       catch (Exception ex)
       {
-        var bp = ex;
-        var breakp = true;
+        Logger.None.Write(LogEventLevel.Error, ex, ex.Message + " | " + searchUrl);
       }
 
       return WorkflowExecutionStatus.Completed;

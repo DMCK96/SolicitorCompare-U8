@@ -33,7 +33,7 @@
 
     @include part(logo) {
       display: inline-block;
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       width: 250px;
       height: 250px;

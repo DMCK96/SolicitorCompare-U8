@@ -74,7 +74,6 @@ namespace SolicitorCompare.Helpers
         }
 
         results.Add(solicitor);
-        results.Add(solicitor);
       }
 
       return results;
