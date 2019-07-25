@@ -2308,6 +2308,7 @@
     <Content Include="Views\Blogpost.cshtml" />
     <Content Include="Views\ContactUs.cshtml" />
     <Content Include="Views\Content.cshtml" />
+    <Content Include="Views\ConveyanceSelection.cshtml" />
     <Content Include="Views\FormPage.cshtml" />
     <Content Include="Views\home.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoFormWithTheme.cshtml" />

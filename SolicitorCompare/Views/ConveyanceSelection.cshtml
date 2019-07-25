@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ConveyanceSelection>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "master.cshtml";
+}
+@Html.Partial("_PageHeading")
+
+<div class="container">
+  <div class="rich-text-editor">
+    @Html.Raw(Model.Text)
+  </div>
+
+  <div class="card-links">
+    @foreach (var card in Model.CardLinks)
+    {
+      <div class="card-links__card">
+        <div class="card-links__card__title">
+          @card.CardTitle
+        </div>
+        @if (card.Image != null)
+        {
+          <div class="card-links__card__image" style="background-image: url('@card.Image.Url')"></div>
+        }
+        <div class="card-links__card__summary">@card.Summary</div>
+        <div class="card-links__card__button">
+          <a href="@card.ButtonLink.Url" class="button --secondary --dark">@card.ButtonText</a>
+        </div>
+      </div>
+    }
+  </div>
+</div>
