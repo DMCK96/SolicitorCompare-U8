@@ -1,4 +1,4 @@
-﻿@using Umbraco.Web.Models
+@using Umbraco.Web.Models
 @inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
 @{
     Layout = null;
@@ -24,30 +24,41 @@
 
     <body>
 
-    @{
+      @{
         var redirectUrl = "";
 
         if (Model.HasValue("redirect") && Model.Value<Link>("redirect") != null)
         {
-            redirectUrl = Model.Value<Link>("redirect").Url;
+          redirectUrl = Model.Value<Link>("redirect").Url;
         }
 
         if (!redirectUrl.IsNullOrWhiteSpace())
         {
-            Response.Redirect(redirectUrl);
+          Response.Redirect(redirectUrl);
         }
-    }
+      }
 
-    @Html.Partial("_Header")
+      @Html.Partial("_Header")
 
       <main>
-          @RenderBody()
-        </main>
+        @RenderBody()
+      </main>
 
-        @Html.Partial("_Footer")
+      @Html.Partial("_Footer")
 
-    <script type="text/javascript" src="~/assets/js/dist/bloc.min.js"></script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3"></script>
+      <!-- Ybug code -->
+      <script type='text/javascript'>
+        (function () {
+          window.ybug_settings = { "id": "h36gkfjtgm" };
+          var ybug = document.createElement('script'); ybug.type = 'text/javascript'; ybug.async = true;
+          ybug.src = 'https://ybug.io/api/v1/button/' + window.ybug_settings.id + '.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ybug, s);
+        })();
+      </script>
+      <!-- Ybug code end -->
+
+      <script type="text/javascript" src="~/assets/js/dist/bloc.min.js"></script>
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.3"></script>
     </body>
 </html>
