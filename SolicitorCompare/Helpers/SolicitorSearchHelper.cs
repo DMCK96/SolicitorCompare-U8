@@ -9,14 +9,12 @@ namespace SolicitorCompare.Helpers
 {
   public class SolicitorSearchHelper
   {
-    public List<IPublishedContent> Solcitiors { get; set; }
-
-    public List<IPublishedContent> GetSolicitorResults(SearchModel model)
+    public List<IPublishedContent> GetRTASolicitorResults(SearchModel model)
     {
       var results = new List<IPublishedContent>();
 
       var umbracoHelper = Umbraco.Web.Composing.Current.UmbracoHelper;
-      var solicitors = umbracoHelper.Content(1365).Children.ToList();
+      var solicitors = umbracoHelper.ContentSingleAtXPath(XPath.SolicitorListing).Children.ToList();
 
       foreach (var solicitor in solicitors)
       {
@@ -75,6 +73,18 @@ namespace SolicitorCompare.Helpers
 
         results.Add(solicitor);
       }
+
+      return results;
+    }
+
+    public List<IPublishedContent> GetConveyanceSolicitorResults()
+    {
+      var results = new List<IPublishedContent>();
+      var umbracoHelper = Umbraco.Web.Composing.Current.UmbracoHelper;
+      var solicitors = umbracoHelper.ContentSingleAtXPath(XPath.SolicitorListing).Children.ToList();
+
+
+      results = solicitors.Where(s => s.Value<string[]>("services").Contains("Conveyancing")).ToList();
 
       return results;
     }

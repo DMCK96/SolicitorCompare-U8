@@ -302,7 +302,7 @@
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
   "manualApproval": false,
-  "storeRecordsLocally": true,
+  "storeRecordsLocally": false,
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,

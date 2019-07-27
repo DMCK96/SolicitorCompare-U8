@@ -204,7 +204,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -239,7 +241,10 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -271,7 +276,10 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -303,7 +311,10 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -328,7 +339,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Freehold",
                     "Leasehold"
@@ -356,7 +369,10 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -381,7 +397,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -416,7 +434,10 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -448,7 +469,10 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
                   "preValues": []
                 },
                 {
@@ -473,7 +497,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -501,7 +527,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -529,7 +557,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -557,7 +587,9 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
@@ -592,7 +624,9 @@
                       }
                     ]
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Second home",
                     "Buy-to-let"
@@ -620,11 +654,40 @@
                     "logicType": "All",
                     "rules": []
                   },
-                  "settings": {},
+                  "settings": {
+                    "DefaultValue": ""
+                  },
                   "preValues": [
                     "Yes",
                     "No"
                   ]
+                },
+                {
+                  "caption": "Solicitor",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "solicitor",
+                  "id": "2662343b-aeac-469d-88dc-d8dc03a4c8e7",
+                  "fieldTypeId": "da206cae-1c52-434e-b21a-4a7c198af877",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": false,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": "[%solicitor]"
+                  },
+                  "preValues": []
                 }
               ]
             }

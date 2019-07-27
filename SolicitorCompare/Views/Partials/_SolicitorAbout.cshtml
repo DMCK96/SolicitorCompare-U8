@@ -4,13 +4,71 @@
 
 @{
   var helper = Umbraco.Web.Composing.Current.UmbracoHelper;
-  var claimForm = helper.ContentSingleAtXPath(XPath.RTAClaim);
-  if (claimForm == null)
-  {
-    claimForm = helper.Content(1337);
-  }
+  var url = "";
   var query = "?solicitor=" + HttpUtility.UrlEncode(Model.Name);
-  var url = claimForm.Url + query;
+  string form = Request.QueryString.Get("form") ?? "";
+
+  if (!form.IsNullOrWhiteSpace())
+  {
+    switch (form)
+    {
+      case "road-traffic-accident":
+      {
+        var formNode = helper.ContentSingleAtXPath(XPath.RTAClaim);
+        if (formNode == null)
+        {
+          formNode = helper.Content(1337);
+        }
+
+        url = formNode.Url + query;
+        break;
+      }
+      case "remortgage":
+      {
+        var formNode = helper.ContentSingleAtXPath(XPath.ConveyanceRemortgage);
+        if (formNode == null)
+        {
+          formNode = helper.Content(1333);
+        }
+
+        url = formNode.Url + query;
+        break;
+      }
+      case "transfer-of-equity":
+      {
+        var formNode = helper.ContentSingleAtXPath(XPath.ConveyanceTransferEquity);
+        if (formNode == null)
+        {
+          formNode = helper.Content(1334);
+        }
+
+        url = formNode.Url + query;
+        break;
+      }
+      case "purchase-property":
+      {
+        var formNode = helper.ContentSingleAtXPath(XPath.ConveyanceBuyProperty);
+        if (formNode == null)
+        {
+          formNode = helper.Content(1335);
+        }
+
+        url = formNode.Url + query;
+        break;
+      }
+      case "sell-property":
+      {
+        var formNode = helper.ContentSingleAtXPath(XPath.ConveyanceSellProperty);
+        if (formNode == null)
+        {
+          formNode = helper.Content(1336);
+        }
+
+        url = formNode.Url + query;
+        break;
+      }
+    }
+  }
 }
 <div class="solicitor-about__heading__container">
     <h2 class="solicitor-about__heading">About Us</h2>
@@ -19,9 +77,12 @@
     <img class="solicitor-about__logo" src="@Model.Logo.Url"/>
     <div class="solicitor-about__short-text">
         @Model.Summary
-        <div class="solicitor-about__short-text__claim ">
+        @if (!url.IsNullOrWhiteSpace())
+        {
+          <div class="solicitor-about__short-text__claim ">
             <a href="@url" class="solicitor-about__short-text__claim__button button --secondary --dark">Claim Now</a>
-        </div>
+          </div>
+        }
 
     </div>
     <div class="solicitor-about__long-text">@Html.Raw(Model.AboutUs)</div>

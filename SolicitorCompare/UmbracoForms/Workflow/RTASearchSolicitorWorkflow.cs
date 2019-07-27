@@ -14,18 +14,18 @@ using Umbraco.Core.Logging;
 
 namespace SolicitorCompare.UmbracoForms.Workflow
 {
-  public class SearchSolicitorWorkflow : WorkflowType
+  public class RTASearchSolicitorWorkflow : WorkflowType
   {
     private readonly IContentService _contentService;
     private readonly IMediaService _mediaService;
     private readonly IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
     private readonly IDataTypeService _dataTypeService;
 
-    public SearchSolicitorWorkflow(IContentService contentService, IMediaService mediaService,
+    public RTASearchSolicitorWorkflow(IContentService contentService, IMediaService mediaService,
       IContentTypeBaseServiceProvider contentTypeBaseServiceProvider, IDataTypeService dataTypeService)
     {
       this.Id = new Guid("2b9064d0-f8b4-441a-af80-8652cbb842e0");
-      this.Name = "Search Solicitor";
+      this.Name = "RTA Search Solicitor";
       this.Icon = "icon-user";
 
       _contentService = contentService;

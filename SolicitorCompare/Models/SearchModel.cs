@@ -6,6 +6,7 @@ namespace SolicitorCompare.Models
 {
   public class SearchModel : ContentModel
   {
+    public string Form { get; set; }
     public DateTime AccidentDate { get; set; }
     public string Fault { get; set; }
     public bool Passengers { get; set; }
