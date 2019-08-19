@@ -25,6 +25,10 @@
     }
   }
 
+  @include part(long-text) {
+    margin-bottom: 20px;
+  }
+
   @include part(short-text) {
     margin-bottom: 20px;
     font-size: 1.4rem;
@@ -47,6 +51,18 @@
         width: 100%;
         text-align: center;
       }
+    }
+  }
+
+  @include part(map) {
+    width: 100%;
+    display: block;
+
+    @include part(iframe) {
+      width: 100%;
+      height: 35%;
+      display: block;
+
     }
   }
 }

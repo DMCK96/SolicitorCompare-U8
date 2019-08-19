@@ -7,6 +7,28 @@
   var url = "";
   var query = "?solicitor=" + HttpUtility.UrlEncode(Model.Name);
   string form = Request.QueryString.Get("form") ?? "";
+  var address1 = Model.AddressLine1;
+  var postcode = Model.Postcode;
+  var city = Model.City;
+  var mapsQuery = new List<string>();
+
+  if (!address1.IsNullOrWhiteSpace())
+  {
+    address1 = address1.Replace(" ", "+");
+    mapsQuery.Add(address1);
+  }
+
+  if (!postcode.IsNullOrWhiteSpace())
+  {
+    postcode = postcode.Replace(" ", "+");
+    mapsQuery.Add(postcode);
+  }
+
+  if (!city.IsNullOrWhiteSpace())
+  {
+    city = city.Replace(" ", "+");
+    mapsQuery.Add(city);
+  }
 
   if (!form.IsNullOrWhiteSpace())
   {
@@ -86,4 +108,17 @@
 
     </div>
     <div class="solicitor-about__long-text">@Html.Raw(Model.AboutUs)</div>
+
+
+    @if (mapsQuery.Any())
+    {
+      var mapsQueryString = String.Join(",", mapsQuery);
+      <div class="solicitor-about__map">
+        <iframe class="solicitor-about__map__iframe"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBrNdWn0H6bfyn9huFkchcrLTQQa64cK1E&q=@mapsQueryString" allowfullscreen>
+        </iframe>
+      </div>
+    }
+
 </div>

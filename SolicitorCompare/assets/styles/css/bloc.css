@@ -2080,6 +2080,8 @@ body {
         display: inline-block;
         width: 35%;
         margin-right: 4%; } }
+  .solicitor-about__long-text {
+    margin-bottom: 20px; }
   .solicitor-about__short-text {
     margin-bottom: 20px;
     font-size: 1.4rem;
@@ -2100,6 +2102,13 @@ body {
       .solicitor-about__short-text__claim__button {
         width: 100%;
         text-align: center; }
+  .solicitor-about__map {
+    width: 100%;
+    display: block; }
+    .solicitor-about__map__iframe {
+      width: 100%;
+      height: 35%;
+      display: block; }
 
 .solicitor-reviews {
   width: 100%;
