@@ -6,7 +6,9 @@ export default function initScrollTo() {
   }
 
   Array.from(links).forEach(each => {
-    each.addEventListener('click', (e) => scrollTo(e));
+    if (each.getAttribute('href').charAt(0) === '#') {
+      each.addEventListener('click', (e) => scrollTo(e));
+    }
   });
 };
 
